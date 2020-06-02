@@ -1,49 +1,51 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
-/**
- * Write a description of class RedWorld here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class BattleWorld extends World
-{
-    public final static int CELL_SIZE = 60;
     
-    GreenfootImage img = new GreenfootImage(CELL_SIZE * 20, CELL_SIZE * 10);
+    import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
     
-    // Grid to store what ship is present in each cell
-    public Battleship[][] grid;
-    
-    // Players' ships
-    private Battleship[] leftPlayerShips;
-    private Battleship[] rightPlayerShips;
-    
-    public BattleWorld()
-    {    
-        super(CELL_SIZE * 20, CELL_SIZE * 10, 1); 
-        img.setColor(Color.BLUE);
-        img.fillRect(0, 0, CELL_SIZE * 20, CELL_SIZE * 10);
-        img.setColor(Color.BLACK);
-        for (int i = 0; i < CELL_SIZE * 20; i += CELL_SIZE) 
-        {
-            img.drawLine(i, 0, i, CELL_SIZE * 10);
-        }
-        
-        for (int i = 0; i < CELL_SIZE * 10; i += CELL_SIZE) 
-        {
-            img.drawLine(0, i, CELL_SIZE * 20, i);
-        }
-        
-        img.fillRect(CELL_SIZE * 10 - 3, 0, 7, CELL_SIZE * 10);
-        setBackground(img);
-        
-        grid = new Battleship[20][10];
-    }
-    
-    public void act()
+    /**
+     * Write a description of class RedWorld here.
+     * 
+     * @author (your name) 
+     * @version (a version number or a date)
+     */
+    public class BattleWorld extends World
     {
-        fillCells(getRow(), getCol());
+        public final static int CELL_SIZE = 60;
+        
+        GreenfootImage img = new GreenfootImage(CELL_SIZE * 20, CELL_SIZE * 10);
+        
+        // Grid to store what ship is present in each cell
+        public Battleship[][] grid;
+        
+        // Players' ships
+        private Battleship[] leftPlayerShips;
+        private Battleship[] rightPlayerShips;
+        private int speed = 5;
+        public BattleWorld()
+        {    
+            super(CELL_SIZE * 20, CELL_SIZE * 10, 1); 
+            img.setColor(Color.BLUE);
+            img.fillRect(0, 0, CELL_SIZE * 20, CELL_SIZE * 10);
+            img.setColor(Color.BLACK);
+            for (int i = 0; i < CELL_SIZE * 20; i += CELL_SIZE) 
+            {
+                img.drawLine(i, 0, i, CELL_SIZE * 10);
+            }
+            
+            for (int i = 0; i < CELL_SIZE * 10; i += CELL_SIZE) 
+            {
+                img.drawLine(0, i, CELL_SIZE * 20, i);
+            }
+            
+            img.fillRect(CELL_SIZE * 10 - 3, 0, 7, CELL_SIZE * 10);
+            setBackground(img);
+            
+            grid = new Battleship[20][10];
+        }
+        
+        public void act()
+        {
+            fillCells(getRow(), getCol());
+            gridClicked();
     }
     
     public int getRow()
@@ -75,4 +77,25 @@ public class BattleWorld extends World
         img.fillRect(CELL_SIZE * 10 - 3, 0, 7, CELL_SIZE * 10);
         setBackground(img);
     }
+    
+    private void gridClicked(){
+        BomberPlane bomber = new BomberPlane();
+        MouseInfo mouse = Greenfoot.getMouseInfo();
+        BattleWorld world = new BattleWorld();
+        if(Greenfoot.mouseClicked(world)){
+            int x = mouse.getX();
+            int y = mouse.getY();
+            bomb(x, y);
+           
+        }
+    }
+        
+    public void bomb(int x, int y){
+        BomberPlane bomber = new BomberPlane();
+        addObject(bomber, 0, y);
+        bomber.move(speed);
+        Missile missile = new Missile();
+        missile.dropMissile(x, y);
+    }
+    
 }
