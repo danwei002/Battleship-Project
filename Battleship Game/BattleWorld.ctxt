@@ -9,4 +9,6 @@ comment3.params=
 comment3.target=int\ getRow()
 comment4.params=
 comment4.target=int\ getCol()
-numComments=5
+comment5.params=rX\ rY
+comment5.target=void\ fillCells(int,\ int)
+numComments=6

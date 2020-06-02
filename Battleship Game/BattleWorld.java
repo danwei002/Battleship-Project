@@ -11,7 +11,8 @@ public class BattleWorld extends World
     public final static int CELL_SIZE = 50;
     
     GreenfootImage img = new GreenfootImage(CELL_SIZE * 20, CELL_SIZE * 10);
-    GreenfootImage original = new GreenfootImage(CELL_SIZE * 20, CELL_SIZE * 10);
+    
+    public Actor[][] grid;
     public BattleWorld()
     {    
         super(CELL_SIZE * 20, CELL_SIZE * 10, 1); 
@@ -30,25 +31,13 @@ public class BattleWorld extends World
         
         img.fillRect(CELL_SIZE * 10 - 3, 0, 7, CELL_SIZE * 10);
         setBackground(img);
+        
+        grid = new Actor[20][10];
     }
     
     public void act()
     {
-        int rX = getRow();
-        int rY = getCol();
-        
-        for (int i = 0; i < CELL_SIZE * 20; i += CELL_SIZE) 
-        {
-            for (int j = 0; j < CELL_SIZE * 10; j += CELL_SIZE) 
-            {
-                if (i / CELL_SIZE == rX && j / CELL_SIZE == rY) {img.setColor(Color.CYAN);}
-                else {img.setColor(Color.BLUE);}
-                img.fillRect(i + 1, j + 1, CELL_SIZE - 1, CELL_SIZE - 1);
-            }
-        }
-        img.setColor(Color.BLACK);
-        img.fillRect(CELL_SIZE * 10 - 3, 0, 7, CELL_SIZE * 10);
-        setBackground(img);
+        fillCells(getRow(), getCol());
     }
     
     public int getRow()
@@ -63,5 +52,21 @@ public class BattleWorld extends World
         MouseInfo mouse = Greenfoot.getMouseInfo();
         if (mouse == null) {return -100;}
         return mouse.getY() / CELL_SIZE;
+    }
+    
+    private void fillCells(int rX, int rY)
+    {
+        for (int i = 0; i < CELL_SIZE * 20; i += CELL_SIZE) 
+        {
+            for (int j = 0; j < CELL_SIZE * 10; j += CELL_SIZE) 
+            {
+                if (i / CELL_SIZE == rX && j / CELL_SIZE == rY) {img.setColor(Color.CYAN);}
+                else {img.setColor(Color.BLUE);}
+                img.fillRect(i + 1, j + 1, CELL_SIZE - 1, CELL_SIZE - 1);
+            }
+        }
+        img.setColor(Color.BLACK);
+        img.fillRect(CELL_SIZE * 10 - 3, 0, 7, CELL_SIZE * 10);
+        setBackground(img);
     }
 }
