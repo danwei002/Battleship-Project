@@ -6,13 +6,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class RedWorld extends World
+public class BattleWorld extends World
 {
     public final static int CELL_SIZE = 50;
     
     GreenfootImage img = new GreenfootImage(CELL_SIZE * 20, CELL_SIZE * 10);
     GreenfootImage original = new GreenfootImage(CELL_SIZE * 20, CELL_SIZE * 10);
-    public RedWorld()
+    public BattleWorld()
     {    
         super(CELL_SIZE * 20, CELL_SIZE * 10, 1); 
         img.setColor(Color.BLUE);

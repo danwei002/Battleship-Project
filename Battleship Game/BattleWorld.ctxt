@@ -1,8 +1,8 @@
 #BlueJ class context
-comment0.target=RedWorld
+comment0.target=BattleWorld
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ RedWorld\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
-comment1.target=RedWorld()
+comment1.target=BattleWorld()
 comment2.params=
 comment2.target=void\ act()
 comment3.params=
