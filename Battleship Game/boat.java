@@ -35,6 +35,6 @@ public class boat extends Actor
             setLocation(getX() + BattleWorld.CELL_SIZE, getY());
         }
         
-        setLocation((int) (getX() / BattleWorld.CELL_SIZE) * BattleWorld.CELL_SIZE + getImage().getWidth() / 2, (int) (getY() / BattleWorld.CELL_SIZE) * BattleWorld.CELL_SIZE + getImage().getHeight() / 2);
+        setLocation((int) (getX() / BattleWorld.CELL_SIZE) * BattleWorld.CELL_SIZE + BattleWorld.CELL_SIZE / 2, (int) (getY() / BattleWorld.CELL_SIZE) * BattleWorld.CELL_SIZE + BattleWorld.CELL_SIZE/ 2);
     }    
 }

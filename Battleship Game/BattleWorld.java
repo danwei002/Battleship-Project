@@ -8,11 +8,17 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class BattleWorld extends World
 {
-    public final static int CELL_SIZE = 50;
+    public final static int CELL_SIZE = 60;
     
     GreenfootImage img = new GreenfootImage(CELL_SIZE * 20, CELL_SIZE * 10);
     
-    public Actor[][] grid;
+    // Grid to store what ship is present in each cell
+    public Battleship[][] grid;
+    
+    // Players' ships
+    private Battleship[] leftPlayerShips;
+    private Battleship[] rightPlayerShips;
+    
     public BattleWorld()
     {    
         super(CELL_SIZE * 20, CELL_SIZE * 10, 1); 
@@ -32,7 +38,7 @@ public class BattleWorld extends World
         img.fillRect(CELL_SIZE * 10 - 3, 0, 7, CELL_SIZE * 10);
         setBackground(img);
         
-        grid = new Actor[20][10];
+        grid = new Battleship[20][10];
     }
     
     public void act()
