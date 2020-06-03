@@ -42,7 +42,7 @@ public class BattleWorld extends World {
         fillCells(getRow(), getCol());
         gridClicked();
         processGrid();
-        // highlight();
+        highlight();
     }
     
     /**
