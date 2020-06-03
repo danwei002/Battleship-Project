@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+    
 /**
  * Write a description of class Zoomboat here.
  * 
@@ -25,6 +25,9 @@ public class Zoomboat extends Battleship
         if (!BattleWorld.gameStarted) {
             preGame();
         }
+
         setLocation((int) (getX() / BattleWorld.CELL_SIZE) * BattleWorld.CELL_SIZE + BattleWorld.CELL_SIZE / 2, (int) (getY() / BattleWorld.CELL_SIZE) * BattleWorld.CELL_SIZE + BattleWorld.CELL_SIZE/ 2);
-    }    
+    }  
+    
+
 }

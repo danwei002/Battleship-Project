@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.*;
 
 /**
  * Write a description of class Battleship here.
@@ -107,12 +108,14 @@ public abstract class Battleship extends Actor
             }
         }
     }
-    
+
     /**
      * Check if the ship is being dragged around to reposition
      */
     protected void dragCheck() {
         MouseInfo mouse = Greenfoot.getMouseInfo();
+        int preX = getX();
+        int preY = getY();
         if (mouse == null) {return;}
         if (Greenfoot.mousePressed(this) && !beingDragged) {
             beingDragged = true;
@@ -129,18 +132,40 @@ public abstract class Battleship extends Actor
             return;
         }
     }
-    
+
     /**
      * Method that is constantly called prior to game starting
      */
     protected void preGame() {
         if (!selected) {return;}
         dragCheck();
+        collisionHandler();
         if (Greenfoot.getKey() == "space" && !keyPressed) {
             keyPressed = true;
             turn(90);
         } else {
             keyPressed = false;
+        }
+    }
+    
+    /**
+     * Collision handler
+     */
+    protected void collisionHandler() {
+        if (isLeft) {
+            if (getOneIntersectingObject(Battleship.class) != null) {
+                if (getX() >= BattleWorld.CELL_SIZE * 9) {setLocation(getX(), getY() - BattleWorld.CELL_SIZE);}
+                else {setLocation(getX(), getY() + BattleWorld.CELL_SIZE);}
+            }
+            
+            if (getX() + getImage().getWidth() / 2 >= BattleWorld.CELL_SIZE * 9 + BattleWorld.CELL_SIZE / 2) {setLocation(getX() - BattleWorld.CELL_SIZE, getY());}
+        } else {
+            if (getOneIntersectingObject(Battleship.class) != null) {
+                if (getX() >= BattleWorld.CELL_SIZE * 9) {setLocation(getX(), getY() - BattleWorld.CELL_SIZE);}
+                else {setLocation(getX(), getY() + BattleWorld.CELL_SIZE);}
+            }
+            
+            if (getX() - getImage().getWidth() / 2 <= BattleWorld.CELL_SIZE * 9 + BattleWorld.CELL_SIZE / 2) {setLocation(getX() + BattleWorld.CELL_SIZE, getY());}
         }
     }
 }
