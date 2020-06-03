@@ -95,7 +95,7 @@
         addObject(bomber, 0, y);
         bomber.move(speed);
         Missile missile = new Missile();
-        missile.dropMissile(x, y);
+        //missile.dropMissile(x, y);
     }
     
 }
