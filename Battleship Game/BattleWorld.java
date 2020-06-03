@@ -42,6 +42,7 @@ public class BattleWorld extends World {
         fillCells(getRow(), getCol());
         gridClicked();
         processGrid();
+        // highlight();
     }
     
     /**
@@ -77,6 +78,20 @@ public class BattleWorld extends World {
                 int yCoord = CELL_SIZE / 2 + j * CELL_SIZE;
                 List <Battleship> l = (List <Battleship>) getObjectsAt(xCoord, yCoord, Battleship.class);
                 if (l.size() != 0) {grid[i][j] = l.get(0);}
+                else {grid[i][j] = null;}
+            }
+        }
+    }
+    
+    /**
+     * Utility function to test grid
+     */
+    private void highlight() {
+        for (int i = 0; i < CELL_SIZE * 20; i += CELL_SIZE) {
+            for (int j = 0; j < CELL_SIZE * 10; j += CELL_SIZE) {
+                if (grid[i / CELL_SIZE][j / CELL_SIZE] != null) {img.setColor(Color.RED);}
+                else {img.setColor(Color.BLUE);}
+                img.fillRect(i + 1, j + 1, CELL_SIZE - 1, CELL_SIZE - 1);
             }
         }
     }
