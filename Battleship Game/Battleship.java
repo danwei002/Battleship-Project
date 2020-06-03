@@ -140,11 +140,8 @@ public abstract class Battleship extends Actor
         if (!selected) {return;}
         dragCheck();
         collisionHandler();
-        if (Greenfoot.getKey() == "space" && !keyPressed) {
-            keyPressed = true;
+        if (Greenfoot.getKey() == "space") {
             turn(90);
-        } else {
-            keyPressed = false;
         }
     }
     
@@ -167,5 +164,21 @@ public abstract class Battleship extends Actor
             
             if (getX() - getImage().getWidth() / 2 <= BattleWorld.CELL_SIZE * 9 + BattleWorld.CELL_SIZE / 2) {setLocation(getX() + BattleWorld.CELL_SIZE, getY());}
         }
+    }
+    
+    /**
+     * Conceal this ship
+     */
+    protected void conceal() {
+        img.setTransparency(1);
+        setImage(img);
+    }
+    
+    /**
+     * Reveal this ship
+     */
+    protected void reveal() {
+        img.setTransparency(255);
+        setImage(img);
     }
 }

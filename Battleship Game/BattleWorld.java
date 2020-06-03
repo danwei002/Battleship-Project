@@ -13,7 +13,7 @@ public class BattleWorld extends World {
     GreenfootImage img = new GreenfootImage(CELL_SIZE * 20, CELL_SIZE * 10);
     
     // Grid to store what ship is present in each cell
-    public Battleship[][] grid;
+    public Battleship[][] grid; // first index = column #, second index = row #
     
     // Players' ships
     private Zoomboat leftZoom1 = new Zoomboat(1, true);
@@ -41,6 +41,10 @@ public class BattleWorld extends World {
     
     // Mouse
     private MouseInfo mouse;
+    
+    // Turning switch button
+    private TurnSwitch ts = new TurnSwitch();
+    
     
     public BattleWorld() {    
         super(CELL_SIZE * 20, CELL_SIZE * 10, 1); 
@@ -71,6 +75,8 @@ public class BattleWorld extends World {
         addObject(rightZoom1, CELL_SIZE * 19, CELL_SIZE * 5);
         addObject(rightZoom2, CELL_SIZE * 19, CELL_SIZE * 6);
         
+        addObject(ts, CELL_SIZE * 10, CELL_SIZE * 10 - 50);
+        
         grid = new Battleship[20][10];
     }
         
@@ -81,6 +87,12 @@ public class BattleWorld extends World {
         if (mouse != null) {fillCells(getCol(mouse.getX()), getRow(mouse.getY()));}
         shipSelect();
         //highlight();
+        
+        if (isLeftTurn) {
+            for (Battleship b: rightPlayerShips) {b.unselect();}
+        } else {
+            for (Battleship b: leftPlayerShips) {b.unselect();}
+        }
     }
     
     /**
@@ -167,7 +179,8 @@ public class BattleWorld extends World {
         BomberPlane bomber = new BomberPlane();
         addObject(bomber, 0, (y / CELL_SIZE * CELL_SIZE) + CELL_SIZE / 2);
         Missile missile = new Missile();
-        // missile.dropMissile(x / CELL_SIZE * CELL_SIZE) + CELL_SIZE / 2, y / CELL_SIZE * CELL_SIZE) + CELL_SIZE / 2); 
+        addObject(missile, (x / CELL_SIZE * CELL_SIZE)+CELL_SIZE / 2 , (y / CELL_SIZE * CELL_SIZE) + CELL_SIZE / 2);
+        missile.dropMissile((x / CELL_SIZE * CELL_SIZE)+CELL_SIZE / 2 , (y / CELL_SIZE * CELL_SIZE) + CELL_SIZE / 2); 
     }
     
     /**
@@ -203,4 +216,9 @@ public class BattleWorld extends World {
             }
         }
     }
+    
+    /**
+     * Switch turns
+     */
+    public void switchTurn() {isLeftTurn = !isLeftTurn;}
 }

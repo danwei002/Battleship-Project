@@ -8,29 +8,54 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Missile extends Weapons
 {
-    /**
-     * Act - do whatever the Missile wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    private int speed = 3; 
-    private int damage = 5; 
+    private int speed; 
+    private int damage; 
+    private GreenfootImage[] missileExplosion = {new GreenfootImage("mis2.png"),new GreenfootImage("mis3.png"), new GreenfootImage("mis4.png"), new GreenfootImage("mis5.png"), new GreenfootImage("mis6.png")};
+    private int index = 0;
+    private boolean exploding = false;
+    private GreenfootImage[] blowingUp = {};
+    public Missile(int speed, int damage){
+           this.speed=speed;
+           this.damage = damage;
+    }
+    public Missile(){
+        speed = 3;
+        damage = 5;
+    }
     public void act() 
     {
         // Add your action code here.
-    }    
-    
-    
-    public void dropMissile(int x, int y){
-        
-        setLocation(x, y); 
-        if(getOneIntersectingObject(Battleship.class)!=null){
-            explode();
-            
+        if(exploding){
+         explode();
         }
     }
-    
-    public void explode(){
-        
+
+    public void dropMissile(int x, int y){
+        BattleWorld world =(BattleWorld) getWorld();
+        Missile m = new Missile();
+        int row = world.getRow(y);
+        int column = world.getCol(x);
+        exploding =true; 
     }
-    
+
+    public void explode(){
+        if(index < 20){
+         GreenfootImage missileExplosions  = missileExplosion[index/4];
+         setImage(missileExplosions);
+         index++;
+         if(index == 4){
+                blowUp();
+
+            }
+        }
+        else{
+            getWorld().removeObject(this);
+        }
+    }
+    public void blowUp(){
+
+
+    }
+
+
 }

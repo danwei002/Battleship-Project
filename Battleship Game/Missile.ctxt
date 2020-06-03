@@ -1,10 +1,16 @@
 #BlueJ class context
 comment0.target=Missile
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ Missile\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=
-comment1.target=void\ act()
-comment2.params=x\ y
-comment2.target=void\ dropMissile(int,\ int)
+comment1.params=speed\ damage
+comment1.target=Missile(int,\ int)
+comment2.params=
+comment2.target=Missile()
 comment3.params=
-comment3.target=void\ explode()
-numComments=4
+comment3.target=void\ act()
+comment4.params=x\ y
+comment4.target=void\ dropMissile(int,\ int)
+comment5.params=
+comment5.target=void\ explode()
+comment6.params=
+comment6.target=void\ blowUp()
+numComments=7
