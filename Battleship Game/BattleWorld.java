@@ -16,8 +16,31 @@ public class BattleWorld extends World {
     public Battleship[][] grid;
     
     // Players' ships
-    private Battleship[] leftPlayerShips;
-    private Battleship[] rightPlayerShips;
+    private Zoomboat leftZoom1 = new Zoomboat(1, true);
+    private Zoomboat leftZoom2 = new Zoomboat(1, true);
+    private Cruiser leftCruiser1 = new Cruiser(2, true);
+    private Cruiser leftCruiser2 = new Cruiser(2, true);
+    private Submarine leftSub1 = new Submarine(3, true);
+    private Submarine leftSub2 = new Submarine(3, true);
+    
+    private Zoomboat rightZoom1 = new Zoomboat(1, false);
+    private Zoomboat rightZoom2 = new Zoomboat(1, false);
+    private Cruiser rightCruiser1 = new Cruiser(2, false);
+    private Cruiser rightCruiser2 = new Cruiser(2, false);
+    private Submarine rightSub1 = new Submarine(3, false);
+    private Submarine rightSub2 = new Submarine(3, false);
+    
+    private Battleship[] leftPlayerShips = {leftZoom1, leftZoom2, leftCruiser1, leftCruiser2, leftSub1, leftSub2};
+    private Battleship[] rightPlayerShips = {rightZoom1, rightZoom2, rightCruiser1, rightCruiser2, rightSub1, rightSub2};
+    
+    // Used in all classes to determine if the game has begun
+    public static boolean gameStarted = false;
+    
+    // Store which player's turn it is
+    private boolean isLeftTurn = false;
+    
+    // Mouse
+    private MouseInfo mouse;
     
     public BattleWorld() {    
         super(CELL_SIZE * 20, CELL_SIZE * 10, 1); 
@@ -35,6 +58,19 @@ public class BattleWorld extends World {
         img.fillRect(CELL_SIZE * 10 - 3, 0, 7, CELL_SIZE * 10);
         setBackground(img);
         
+        addObject(leftSub1, 0, CELL_SIZE);
+        addObject(leftSub2, 0, CELL_SIZE * 2);
+        addObject(leftCruiser1, CELL_SIZE, CELL_SIZE * 3);
+        addObject(leftCruiser2, CELL_SIZE, CELL_SIZE * 4);
+        addObject(leftZoom1, 0, CELL_SIZE * 5);
+        addObject(leftZoom2, 0, CELL_SIZE * 6);
+        addObject(rightSub1, CELL_SIZE * 19, CELL_SIZE);
+        addObject(rightSub2, CELL_SIZE * 19, CELL_SIZE * 2);
+        addObject(rightCruiser1, CELL_SIZE * 19, CELL_SIZE * 3);
+        addObject(rightCruiser2, CELL_SIZE * 19, CELL_SIZE * 4);
+        addObject(rightZoom1, CELL_SIZE * 19, CELL_SIZE * 5);
+        addObject(rightZoom2, CELL_SIZE * 19, CELL_SIZE * 6);
+        
         grid = new Battleship[20][10];
     }
         
@@ -42,7 +78,9 @@ public class BattleWorld extends World {
         fillCells(getRow(), getCol());
         gridClicked();
         processGrid();
-        highlight();
+        mouse = Greenfoot.getMouseInfo();
+        shipSelect();
+        //highlight();
     }
     
     /**
@@ -51,7 +89,6 @@ public class BattleWorld extends World {
      * @return int Row number (integer from 0 - 19)
      */
     public int getRow() {
-        MouseInfo mouse = Greenfoot.getMouseInfo();
         if (mouse == null) {return -100;}
         return mouse.getX() / CELL_SIZE;
     }
@@ -62,7 +99,6 @@ public class BattleWorld extends World {
      * @return int Column number (integer from 0 - 19)
      */
     public int getCol() {
-        MouseInfo mouse = Greenfoot.getMouseInfo();
         if (mouse == null) {return -100;}
         return mouse.getY() / CELL_SIZE;
     }
@@ -118,7 +154,6 @@ public class BattleWorld extends World {
      */
     private void gridClicked() {
         BomberPlane bomber = new BomberPlane();
-        MouseInfo mouse = Greenfoot.getMouseInfo();
         if (mouse == null) {return;}
         int x = mouse.getX();
         int y = mouse.getY();
@@ -135,4 +170,37 @@ public class BattleWorld extends World {
         // missile.dropMissile(x / CELL_SIZE * CELL_SIZE) + CELL_SIZE / 2, y / CELL_SIZE * CELL_SIZE) + CELL_SIZE / 2); 
     }
     
+    /**
+     * Selecting ship handler
+     */
+    private void shipSelect() {
+        MouseInfo mouse = Greenfoot.getMouseInfo();
+        Battleship selectedShip;
+        if (mouse == null) {return;}
+        if (isLeftTurn) {
+            int x = mouse.getX();
+            int y = mouse.getY();
+            List<Battleship> l = (List <Battleship>) getObjectsAt(x, y, Battleship.class);
+            if (l.size() == 0) {return;}
+            selectedShip = l.get(0);
+            if (Greenfoot.mouseClicked(selectedShip)) {
+                for (Battleship b: leftPlayerShips) {
+                    if (b == selectedShip) {b.select();}
+                    else {b.unselect();}
+                }
+            }
+        } else {
+            int x = mouse.getX();
+            int y = mouse.getY();
+            List<Battleship> l = (List <Battleship>) getObjectsAt(x, y, Battleship.class);
+            if (l.size() == 0) {return;}
+            selectedShip = l.get(0);
+            if (Greenfoot.mouseClicked(selectedShip)) {
+                for (Battleship b: rightPlayerShips) {
+                    if (b == selectedShip) {b.select();}
+                    else {b.unselect();}
+                }
+            }
+        }
+    }
 }

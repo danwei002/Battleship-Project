@@ -21,10 +21,10 @@ public class Cruiser extends Battleship {
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() {
-        if (Greenfoot.isKeyDown("space")) {
-            turn(90);
-        }
         borderCheck();
+        if (!BattleWorld.gameStarted) {
+            preGame();
+        }
         if (getRotation() == 180 || getRotation() == 0) {
             setLocation((getX() / BattleWorld.CELL_SIZE) * BattleWorld.CELL_SIZE, (getY() / BattleWorld.CELL_SIZE) * BattleWorld.CELL_SIZE + BattleWorld.CELL_SIZE / 2);
         } else {

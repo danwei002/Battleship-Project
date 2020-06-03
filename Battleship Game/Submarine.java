@@ -25,10 +25,10 @@ public class Submarine extends Battleship
      */
     public void act() 
     {
-        if (Greenfoot.isKeyDown("space"))
-        {
-            turn(90);
+        if (!BattleWorld.gameStarted) {
+            preGame();
         }
+        
         borderCheck();
         setLocation((int) (getX() / BattleWorld.CELL_SIZE) * BattleWorld.CELL_SIZE + BattleWorld.CELL_SIZE / 2, (int) (getY() / BattleWorld.CELL_SIZE) * BattleWorld.CELL_SIZE + BattleWorld.CELL_SIZE/ 2);
     }    

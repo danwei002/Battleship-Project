@@ -22,6 +22,12 @@ public abstract class Battleship extends Actor
     // Image
     protected GreenfootImage img;
     
+    // Check if the ship is already being dragged
+    protected boolean beingDragged = false;
+    
+    // Check if a key has been pressed
+    protected boolean keyPressed = false;
+    
     public void act()
     {
         if (hp <= 0) {getWorld().removeObject(this);}
@@ -32,32 +38,28 @@ public abstract class Battleship extends Actor
      * 
      * @param damage The amount of damage to be taken
      */
-    protected void takeDamage(int damage)
-    {
+    protected void takeDamage(int damage) {
         hp -= damage;
     }
     
     /**
      * Toggle this ship to be selected
      */
-    protected void select()
-    {
+    protected void select() {
         selected = true;
     }
     
     /**
      * Toggle this ship to be unselected
      */
-    protected void unselect()
-    {
+    protected void unselect() {
         selected = false;
     }
     
     /**
      * Check for border collision based on the ship's rotation
      */
-    protected void borderCheck()
-    {
+    protected void borderCheck() {
         int worldWidth = BattleWorld.CELL_SIZE * 20;
         int worldHeight = BattleWorld.CELL_SIZE * 10;
         if (getRotation() == 180 || getRotation() == 0) // Horizontal orientation
@@ -103,6 +105,42 @@ public abstract class Battleship extends Actor
             {
                 setLocation(getX(), getY()  - BattleWorld.CELL_SIZE);
             }
+        }
+    }
+    
+    /**
+     * Check if the ship is being dragged around to reposition
+     */
+    protected void dragCheck() {
+        MouseInfo mouse = Greenfoot.getMouseInfo();
+        if (mouse == null) {return;}
+        if (Greenfoot.mousePressed(this) && !beingDragged) {
+            beingDragged = true;
+            return;
+        }
+        
+        if (beingDragged && Greenfoot.mouseDragged(this)) {
+            setLocation(mouse.getX(), mouse.getY());
+            return;
+        }
+        
+        if (Greenfoot.mouseDragEnded(this) && beingDragged) {
+            beingDragged = false;
+            return;
+        }
+    }
+    
+    /**
+     * Method that is constantly called prior to game starting
+     */
+    protected void preGame() {
+        if (!selected) {return;}
+        dragCheck();
+        if (Greenfoot.getKey() == "space" && !keyPressed) {
+            keyPressed = true;
+            turn(90);
+        } else {
+            keyPressed = false;
         }
     }
 }
