@@ -75,32 +75,32 @@ public class BattleWorld extends World {
     }
         
     public void act() {
-        fillCells(getRow(), getCol());
         gridClicked();
         processGrid();
         mouse = Greenfoot.getMouseInfo();
+        if (mouse != null) {fillCells(getCol(mouse.getX()), getRow(mouse.getY()));}
         shipSelect();
         //highlight();
     }
     
     /**
-     * Utility method to get the row number that the mouse is located in
+     * Utility method to get the row number for a specified x-coordinate
      * 
+     * @param x x-coordinate
      * @return int Row number (integer from 0 - 19)
      */
-    public int getRow() {
-        if (mouse == null) {return -100;}
-        return mouse.getX() / CELL_SIZE;
+    public int getCol(int x) {
+        return x / CELL_SIZE;
     }
     
     /**
-     * Utility method to get the column number that the mouse is located in
+     * Utility method to get the row number for a specified y-coordinate
      * 
-     * @return int Column number (integer from 0 - 19)
+     * @param y y-coordinate
+     * @return int Column number (integer from 0 - 9)
      */
-    public int getCol() {
-        if (mouse == null) {return -100;}
-        return mouse.getY() / CELL_SIZE;
+    public int getRow(int y) {
+        return y / CELL_SIZE;
     }
     
     /**
