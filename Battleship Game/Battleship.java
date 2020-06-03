@@ -158,7 +158,7 @@ public abstract class Battleship extends Actor
                 else {setLocation(getX(), getY() + BattleWorld.CELL_SIZE);}
             }
             
-            if (getX() + getImage().getWidth() / 2 >= BattleWorld.CELL_SIZE * 9 + BattleWorld.CELL_SIZE / 2) {setLocation(getX() - BattleWorld.CELL_SIZE, getY());}
+            if (getX() + getImage().getWidth() / 2 >= BattleWorld.CELL_SIZE * 10 + BattleWorld.CELL_SIZE / 2) {setLocation(getX() - BattleWorld.CELL_SIZE, getY());}
         } else {
             if (getOneIntersectingObject(Battleship.class) != null) {
                 if (getX() >= BattleWorld.CELL_SIZE * 9) {setLocation(getX(), getY() - BattleWorld.CELL_SIZE);}

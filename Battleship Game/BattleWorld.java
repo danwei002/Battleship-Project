@@ -37,7 +37,7 @@ public class BattleWorld extends World {
     public static boolean gameStarted = false;
     
     // Store which player's turn it is
-    private boolean isLeftTurn = false;
+    private boolean isLeftTurn = true;
     
     // Mouse
     private MouseInfo mouse;
