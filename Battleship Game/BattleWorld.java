@@ -183,7 +183,7 @@ public class BattleWorld extends World {
             List<Battleship> l = (List <Battleship>) getObjectsAt(x, y, Battleship.class);
             if (l.size() == 0) {return;}
             selectedShip = l.get(0);
-            if (Greenfoot.mouseClicked(selectedShip)) {
+            if (Greenfoot.mousePressed(selectedShip)) {
                 for (Battleship b: leftPlayerShips) {
                     if (b == selectedShip) {b.select();}
                     else {b.unselect();}
@@ -195,7 +195,7 @@ public class BattleWorld extends World {
             List<Battleship> l = (List <Battleship>) getObjectsAt(x, y, Battleship.class);
             if (l.size() == 0) {return;}
             selectedShip = l.get(0);
-            if (Greenfoot.mouseClicked(selectedShip)) {
+            if (Greenfoot.mousePressed(selectedShip)) {
                 for (Battleship b: rightPlayerShips) {
                     if (b == selectedShip) {b.select();}
                     else {b.unselect();}
