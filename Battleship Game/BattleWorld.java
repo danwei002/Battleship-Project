@@ -187,13 +187,10 @@ public class BattleWorld extends World {
     }
         
     public void bomb(int x, int y) {
-        BomberPlane bomber = new BomberPlane();
         int row = getRow(y);
         int col = getCol(x);
+        BomberPlane bomber = new BomberPlane(35, row, col, x, this);
         addObject(bomber, 0, (row * CELL_SIZE) + CELL_SIZE / 2);
-        Missile missile = new Missile(3, 1, this);
-        addObject(missile, (col * CELL_SIZE)+CELL_SIZE / 2 , (row * CELL_SIZE) + CELL_SIZE / 2);
-        missile.dropMissile((col * CELL_SIZE)+CELL_SIZE / 2 , (row * CELL_SIZE) + CELL_SIZE / 2); 
     }
     
     /**

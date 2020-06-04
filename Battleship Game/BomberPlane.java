@@ -13,16 +13,33 @@ public class BomberPlane extends Actor {
      */
     private int speed;
     private BattleWorld bw;
+    private Missile m;
+    private int row;
+    private int col;
+    private int xCoord;
+    private boolean droppedMissile = false;
+    
     public BomberPlane() {
          speed = 35; 
     }
     
-    public BomberPlane(int speed) {
+    public BomberPlane(int speed, int row, int col, int xCoord, BattleWorld bw) {
         this.speed = speed; 
+        this.row = row;
+        this.col = col;
+        this.xCoord = xCoord;
+        this.bw = bw;
     }
     
     public void act() {
         move(speed);
+        if (!droppedMissile && getX() >= xCoord) {
+            m = new Missile(3, 1, bw);
+            bw.addObject(m, (col * bw.CELL_SIZE)+ bw.CELL_SIZE / 2 , (row * bw.CELL_SIZE) + bw.CELL_SIZE / 2);
+            m.dropMissile((col * bw.CELL_SIZE)+ bw.CELL_SIZE / 2 , (row * bw.CELL_SIZE) + bw.CELL_SIZE / 2);
+            droppedMissile = true;
+        }
+        
         if (getX() >= BattleWorld.CELL_SIZE * 20 - 10) {
             getWorld().removeObject(this);
         }
