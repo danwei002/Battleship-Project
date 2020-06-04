@@ -25,7 +25,6 @@ public class Zoomboat extends Battleship
     
     public void act() 
     {
-        if (hp <= 0) {getWorld().removeObject(this);}
         borderCheck();
         if (!BattleWorld.gameStarted) {
             preGame();

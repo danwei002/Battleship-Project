@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Missile extends Weapons
 {
     private int speed; 
-    private int damage; 
+    private int damage;
     private GreenfootImage[] missileExplosion = {new GreenfootImage("mis2.png"), new GreenfootImage("mis3.png"), new GreenfootImage("mis4.png"), new GreenfootImage("mis5.png"), 
                                                  new GreenfootImage("mis6.png"), new GreenfootImage("mis7.png"), new GreenfootImage("mis8.png"), new GreenfootImage("mis9.png"),
                                                  new GreenfootImage("mis10.png"), new GreenfootImage("mis11.png")};

@@ -191,6 +191,9 @@ public class BattleWorld extends World {
         int col = getCol(x);
         BomberPlane bomber = new BomberPlane(35, row, col, x, this);
         addObject(bomber, 0, (row * CELL_SIZE) + CELL_SIZE / 2);
+        if (grid[col][row] != null) {
+            grid[col][row].takeDamage(1);
+        }
     }
     
     /**
