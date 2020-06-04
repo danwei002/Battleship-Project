@@ -14,19 +14,17 @@ public class BomberPlane extends Actor {
     private int speed;
     private BattleWorld bw;
     public BomberPlane() {
-         speed = 25; 
+         speed = 35; 
     }
     
-    public BomberPlane(int speed, BattleWorld bw) {
+    public BomberPlane(int speed) {
         this.speed = speed; 
-        this.bw = bw;
     }
     
     public void act() {
         move(speed);
         if (getX() >= BattleWorld.CELL_SIZE * 20 - 10) {
             getWorld().removeObject(this);
-            bw.switchTurn();
         }
     }    
 }

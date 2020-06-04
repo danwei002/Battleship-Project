@@ -16,13 +16,15 @@ public class Missile extends Weapons
     private int index = 0;
     private boolean exploding = false;
     private GreenfootImage[] blowingUp = {};
-    public Missile(int speed, int damage){
+    private BattleWorld bw;
+    public Missile(int speed, int damage, BattleWorld bw){
        this.speed=speed;
        this.damage = damage;
+       this.bw = bw;
     }
     public Missile(){
         speed = 3;
-        damage = 5;
+        damage = 1;
     }
     public void act() 
     {
@@ -33,10 +35,6 @@ public class Missile extends Weapons
     }
 
     public void dropMissile(int x, int y){
-        BattleWorld world =(BattleWorld) getWorld();
-        Missile m = new Missile();
-        int row = world.getRow(y);
-        int column = world.getCol(x);
         exploding =true; 
     }
 
@@ -51,12 +49,12 @@ public class Missile extends Weapons
         }
         else {
             getWorld().removeObject(this);
+            bw.switchTurn();
         }
     }
-    public void blowUp(){
+    
+    public void blowUp() {
 
 
     }
-
-
 }
