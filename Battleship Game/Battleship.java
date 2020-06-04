@@ -28,7 +28,10 @@ public abstract class Battleship extends Actor
     
     // Check if a key has been pressed
     protected boolean keyPressed = false;
-
+    
+    protected GreenfootImage unselectedImg;
+    protected GreenfootImage selectedImg;
+    
     /**
      * Make the Battleship take damage
      * 
@@ -165,6 +168,8 @@ public abstract class Battleship extends Actor
      * Conceal this ship
      */
     protected void conceal() {
+        unselectedImg.setTransparency(1);
+        selectedImg.setTransparency(1);
         img.setTransparency(1);
         setImage(img);
     }
@@ -173,6 +178,8 @@ public abstract class Battleship extends Actor
      * Reveal this ship
      */
     protected void reveal() {
+        unselectedImg.setTransparency(255);
+        selectedImg.setTransparency(255);
         img.setTransparency(255);
         setImage(img);
     }

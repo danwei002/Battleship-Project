@@ -16,6 +16,10 @@ public class Submarine extends Battleship
         this.isLeft = isLeft;
         img = getImage();
         img.scale(width, height);
+        unselectedImg = new GreenfootImage("submarine.png");
+        selectedImg = new GreenfootImage("submarineSelected.png");
+        unselectedImg.scale(width, height);
+        selectedImg.scale(width, height);
         setImage(img);
     }
     
@@ -28,6 +32,9 @@ public class Submarine extends Battleship
         if (!BattleWorld.gameStarted) {
             preGame();
         }
+        
+        if (selected) {setImage(selectedImg);}
+        else {setImage(unselectedImg);}
         
         borderCheck();
         setLocation((int) (getX() / BattleWorld.CELL_SIZE) * BattleWorld.CELL_SIZE + BattleWorld.CELL_SIZE / 2, (int) (getY() / BattleWorld.CELL_SIZE) * BattleWorld.CELL_SIZE + BattleWorld.CELL_SIZE/ 2);

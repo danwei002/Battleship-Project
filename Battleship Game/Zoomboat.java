@@ -16,6 +16,10 @@ public class Zoomboat extends Battleship
         this.isLeft = isLeft;
         img = getImage();
         img.scale(width, height);
+        unselectedImg = new GreenfootImage("zoomboat.png");
+        selectedImg = new GreenfootImage("zoomboatSelected.png");
+        unselectedImg.scale(width, height);
+        selectedImg.scale(width, height);
         setImage(img);
     }
     
@@ -27,6 +31,9 @@ public class Zoomboat extends Battleship
             preGame();
         }
 
+        if (selected) {setImage(selectedImg);}
+        else {setImage(unselectedImg);}
+        
         setLocation((int) (getX() / BattleWorld.CELL_SIZE) * BattleWorld.CELL_SIZE + BattleWorld.CELL_SIZE / 2, (int) (getY() / BattleWorld.CELL_SIZE) * BattleWorld.CELL_SIZE + BattleWorld.CELL_SIZE/ 2);
         if (hp <= 0) {getWorld().removeObject(this);}
     }  

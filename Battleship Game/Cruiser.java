@@ -14,6 +14,10 @@ public class Cruiser extends Battleship {
         this.isLeft = isLeft;
         img = getImage();
         img.scale(width, height);
+        unselectedImg = new GreenfootImage("cruiser.png");
+        selectedImg = new GreenfootImage("cruiserSelected.png");
+        unselectedImg.scale(width, height);
+        selectedImg.scale(width, height);
         setImage(img);
     }
     /**
@@ -25,6 +29,10 @@ public class Cruiser extends Battleship {
         if (!BattleWorld.gameStarted) {
             preGame();
         }
+        
+        if (selected) {setImage(selectedImg);}
+        else {setImage(unselectedImg);}
+        
         if (getRotation() == 180 || getRotation() == 0) {
             setLocation((getX() / BattleWorld.CELL_SIZE) * BattleWorld.CELL_SIZE, (getY() / BattleWorld.CELL_SIZE) * BattleWorld.CELL_SIZE + BattleWorld.CELL_SIZE / 2);
         } else {
