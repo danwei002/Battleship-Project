@@ -30,7 +30,6 @@ public class Cruiser extends Battleship {
         } else {
             setLocation((getX() / BattleWorld.CELL_SIZE) * BattleWorld.CELL_SIZE + BattleWorld.CELL_SIZE / 2, (getY() / BattleWorld.CELL_SIZE) * BattleWorld.CELL_SIZE);
         }
+        if (hp <= 0) {getWorld().removeObject(this);}
     }  
-    
-
 }

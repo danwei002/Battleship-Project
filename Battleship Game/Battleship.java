@@ -28,12 +28,7 @@ public abstract class Battleship extends Actor
     
     // Check if a key has been pressed
     protected boolean keyPressed = false;
-    
-    public void act()
-    {
-        if (hp <= 0) {getWorld().removeObject(this);}
-    }
-    
+
     /**
      * Make the Battleship take damage
      * 

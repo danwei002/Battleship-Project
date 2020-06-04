@@ -31,7 +31,6 @@ public class Submarine extends Battleship
         
         borderCheck();
         setLocation((int) (getX() / BattleWorld.CELL_SIZE) * BattleWorld.CELL_SIZE + BattleWorld.CELL_SIZE / 2, (int) (getY() / BattleWorld.CELL_SIZE) * BattleWorld.CELL_SIZE + BattleWorld.CELL_SIZE/ 2);
+        if (hp <= 0) {getWorld().removeObject(this);}
     } 
-    
-  
 }

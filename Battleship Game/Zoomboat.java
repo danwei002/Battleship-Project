@@ -21,13 +21,13 @@ public class Zoomboat extends Battleship
     
     public void act() 
     {
+        if (hp <= 0) {getWorld().removeObject(this);}
         borderCheck();
         if (!BattleWorld.gameStarted) {
             preGame();
         }
 
         setLocation((int) (getX() / BattleWorld.CELL_SIZE) * BattleWorld.CELL_SIZE + BattleWorld.CELL_SIZE / 2, (int) (getY() / BattleWorld.CELL_SIZE) * BattleWorld.CELL_SIZE + BattleWorld.CELL_SIZE/ 2);
+        if (hp <= 0) {getWorld().removeObject(this);}
     }  
-    
-
 }
