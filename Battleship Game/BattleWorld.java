@@ -87,6 +87,7 @@ public class BattleWorld extends World {
         
     public void act() {
         if (gameStarted) {
+            removeObject(ts);
             gridClicked();
         }
         
@@ -186,7 +187,7 @@ public class BattleWorld extends World {
     }
         
     public void bomb(int x, int y) {
-        BomberPlane bomber = new BomberPlane();
+        BomberPlane bomber = new BomberPlane(25, this);
         addObject(bomber, 0, (y / CELL_SIZE * CELL_SIZE) + CELL_SIZE / 2);
         Missile missile = new Missile();
         addObject(missile, (x / CELL_SIZE * CELL_SIZE)+CELL_SIZE / 2 , (y / CELL_SIZE * CELL_SIZE) + CELL_SIZE / 2);
