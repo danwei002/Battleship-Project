@@ -45,9 +45,13 @@ public class BattleWorld extends World {
     // Turning switch button
     private TurnSwitch ts = new TurnSwitch();
     
+    // End pre-game phase button
+    private StartGame sg = new StartGame();
+    
     
     public BattleWorld() {    
         super(CELL_SIZE * 20, CELL_SIZE * 10, 1); 
+        gameStarted = false;
         img.setColor(Color.BLUE);
         img.fillRect(0, 0, CELL_SIZE * 20, CELL_SIZE * 10);
         img.setColor(Color.BLACK);
@@ -76,12 +80,16 @@ public class BattleWorld extends World {
         addObject(rightZoom2, CELL_SIZE * 19, CELL_SIZE * 6);
         
         addObject(ts, CELL_SIZE * 10, CELL_SIZE * 10 - 50);
+        addObject(sg, CELL_SIZE * 10, CELL_SIZE * 10 - 95);
         
         grid = new Battleship[20][10];
     }
         
     public void act() {
-        gridClicked();
+        if (gameStarted) {
+            gridClicked();
+        }
+        
         processGrid();
         mouse = Greenfoot.getMouseInfo();
         if (mouse != null) {fillCells(getCol(mouse.getX()), getRow(mouse.getY()));}
@@ -89,9 +97,11 @@ public class BattleWorld extends World {
         //highlight();
         
         if (isLeftTurn) {
-            for (Battleship b: rightPlayerShips) {b.unselect();}
+            for (Battleship b: rightPlayerShips) {b.unselect(); b.conceal();}
+            for (Battleship b: leftPlayerShips) {b.reveal();}
         } else {
-            for (Battleship b: leftPlayerShips) {b.unselect();}
+            for (Battleship b: leftPlayerShips) {b.unselect(); b.conceal();}
+            for (Battleship b: rightPlayerShips) {b.reveal();}
         }
     }
     
@@ -220,5 +230,11 @@ public class BattleWorld extends World {
     /**
      * Switch turns
      */
-    public void switchTurn() {isLeftTurn = !isLeftTurn;}
+    public void switchTurn() {
+        SwitchingTurnsText stt = new SwitchingTurnsText();
+        addObject(stt, getWidth() / 2, getHeight() / 2);
+        Greenfoot.delay(300);
+        removeObject(stt);
+        isLeftTurn = !isLeftTurn;
+    }
 }
