@@ -30,14 +30,14 @@ public class BattleWorld extends World {
     private Submarine rightSub1 = new Submarine(3, false);
     private Submarine rightSub2 = new Submarine(3, false);
     
-    private Battleship[] leftPlayerShips = {leftZoom1, leftZoom2, leftCruiser1, leftCruiser2, leftSub1, leftSub2};
-    private Battleship[] rightPlayerShips = {rightZoom1, rightZoom2, rightCruiser1, rightCruiser2, rightSub1, rightSub2};
+    private ArrayList<Battleship> leftPlayerShips = new ArrayList<Battleship>();
+    private ArrayList<Battleship> rightPlayerShips = new ArrayList<Battleship>();
     
     // Used in all classes to determine if the game has begun
     public static boolean gameStarted = false;
     
     // Store which player's turn it is
-    private boolean isLeftTurn = false;
+    private boolean isLeftTurn = true;
     
     // Mouse
     private MouseInfo mouse;
@@ -49,8 +49,9 @@ public class BattleWorld extends World {
     private StartGame sg = new StartGame();
     
     
-    public BattleWorld() {    
+    public BattleWorld() {   
         super(CELL_SIZE * 20, CELL_SIZE * 10, 1); 
+        initialize();
         gameStarted = false;
         img.setColor(Color.BLUE);
         img.fillRect(0, 0, CELL_SIZE * 20, CELL_SIZE * 10);
@@ -83,6 +84,25 @@ public class BattleWorld extends World {
         addObject(sg, CELL_SIZE * 10, CELL_SIZE * 10 - 95);
         
         grid = new Battleship[20][10];
+    }
+    
+    /**
+     * Initialize ArrayLists for player ships
+     */
+    private void initialize()
+    {
+        leftPlayerShips.add(leftZoom1);
+        leftPlayerShips.add(leftZoom2);
+        leftPlayerShips.add(leftCruiser1);
+        leftPlayerShips.add(leftCruiser2);
+        leftPlayerShips.add(leftSub1);
+        leftPlayerShips.add(leftSub2);
+        rightPlayerShips.add(rightZoom1);
+        rightPlayerShips.add(rightZoom2);
+        rightPlayerShips.add(rightCruiser1);
+        rightPlayerShips.add(rightCruiser2);
+        rightPlayerShips.add(rightSub1);
+        rightPlayerShips.add(rightSub2);
     }
         
     public void act() {
@@ -193,7 +213,6 @@ public class BattleWorld extends World {
                 } else {
                     if (col <= 9) {bomb(x, y);}
                 }
-                //bomb(x, y);
             }
         }
     }
@@ -205,6 +224,11 @@ public class BattleWorld extends World {
         addObject(bomber, 0, (row * CELL_SIZE) + CELL_SIZE / 2);
         if (grid[col][row] != null) {
             grid[col][row].takeDamage(1);
+            DestroyedShip ds = new DestroyedShip(CELL_SIZE, CELL_SIZE, isLeftTurn);
+            grid[col][row] = ds;
+            addObject(ds, col * CELL_SIZE + CELL_SIZE / 2, row * CELL_SIZE + CELL_SIZE / 2);
+            if (isLeftTurn) {leftPlayerShips.add(ds);}
+            else {rightPlayerShips.add(ds);}
         }
     }
     
