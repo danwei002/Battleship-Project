@@ -188,7 +188,12 @@ public class BattleWorld extends World {
                 if (grid[col][row].getSide() == isLeftTurn) {return;}
                 else {bomb(x, y);}
             } else {
-                bomb(x, y);
+                if (isLeftTurn) {
+                    if (col >= 10) {bomb(x, y);}
+                } else {
+                    if (col <= 9) {bomb(x, y);}
+                }
+                //bomb(x, y);
             }
         }
     }
