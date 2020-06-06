@@ -10,6 +10,8 @@ public class SwitchingTurnsText extends Actor
 {
     public SwitchingTurnsText()
     {
-        
+        GreenfootImage img = getImage();
+        img.setTransparency(100);
+        setImage(img);
     }
 }

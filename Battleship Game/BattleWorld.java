@@ -37,7 +37,7 @@ public class BattleWorld extends World {
     public static boolean gameStarted = false;
     
     // Store which player's turn it is
-    private boolean isLeftTurn = true;
+    private boolean isLeftTurn = false;
     
     // Mouse
     private MouseInfo mouse;
@@ -180,9 +180,16 @@ public class BattleWorld extends World {
         if (mouse == null) {return;}
         int x = mouse.getX();
         int y = mouse.getY();
+        int row = getRow(y);
+        int col = getCol(x);
         List <Battleship> l = (List <Battleship>) getObjectsAt(x, y, Battleship.class);
         if (Greenfoot.mouseClicked(this) || (l.size() != 0 && Greenfoot.mouseClicked(l.get(0)))) { 
-            bomb(x, y);
+            if (grid[col][row] != null) {
+                if (grid[col][row].getSide() == isLeftTurn) {return;}
+                else {bomb(x, y);}
+            } else {
+                bomb(x, y);
+            }
         }
     }
         
@@ -239,5 +246,14 @@ public class BattleWorld extends World {
         Greenfoot.delay(300);
         removeObject(stt);
         isLeftTurn = !isLeftTurn;
+    }
+    
+    /**
+     * Get current turn
+     * 
+     * @return boolean True if left side turn, false if right side turn
+     */
+    public boolean getTurn() {
+        return isLeftTurn;
     }
 }

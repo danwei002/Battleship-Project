@@ -183,4 +183,11 @@ public abstract class Battleship extends Actor
         img.setTransparency(255);
         setImage(img);
     }
+    
+    /**
+     * Get team side of this ship
+     * 
+     * @return boolean True if left side team , false if right side team
+     */
+    protected boolean getSide() {return isLeft;}
 }
