@@ -205,7 +205,7 @@ public class BattleWorld extends World {
         List <Battleship> l = (List <Battleship>) getObjectsAt(x, y, Battleship.class);
         if (Greenfoot.mouseClicked(this) || (l.size() != 0 && Greenfoot.mouseClicked(l.get(0)))) { 
             if (grid[col][row] != null) {
-                if (grid[col][row].getSide() == isLeftTurn) {return;}
+                if (grid[col][row].getSide() == isLeftTurn || grid[col][row] instanceof DestroyedShip) {return;}
                 else {bomb(x, y);}
             } else {
                 if (isLeftTurn) {
