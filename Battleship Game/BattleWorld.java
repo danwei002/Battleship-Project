@@ -48,6 +48,9 @@ public class BattleWorld extends World {
     // End pre-game phase button
     private StartGame sg = new StartGame();
     
+    // Main sound
+    private GreenfootSound bkgrndMusic = new GreenfootSound("bkgrndMusic.mp3");
+    
     
     public BattleWorld() {   
         super(CELL_SIZE * 20, CELL_SIZE * 10, 1); 
@@ -84,6 +87,9 @@ public class BattleWorld extends World {
         addObject(sg, CELL_SIZE * 10, CELL_SIZE * 10 - 95);
         
         grid = new Battleship[20][10];
+        
+        bkgrndMusic.setVolume(70);
+        bkgrndMusic.playLoop();
     }
     
     /**
