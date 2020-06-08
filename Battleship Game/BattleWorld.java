@@ -98,7 +98,7 @@ public class BattleWorld extends World {
         
         grid = new Battleship[20][10];
         
-        bkgrndMusic.setVolume(70);
+        bkgrndMusic.setVolume(40);
         bkgrndMusic.playLoop();
     }
     

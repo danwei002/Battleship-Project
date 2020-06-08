@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.*;
 /**
  * Write a description of class Radar here.
  * 
@@ -11,7 +11,13 @@ public class Radar extends Weapons
     private int pulseRadius = 1;
     private GreenfootImage radarImg = new GreenfootImage("radar.png");
     private GreenfootSound radarPulse = new GreenfootSound("radarPulse.mp3");
+    //private GreenfootSound radarPulse = new GreenfootSound("usedRadar.mp3"); - cypher voiceline, comment out above line and uncommet this one if u want to hear it
+    private GreenfootSound foundSound = new GreenfootSound("shipFound.wav");
+    // Pulsing sound player or not
     private boolean soundPlayed = false;
+    
+    // Ship found sound effect player or not
+    private boolean foundSoundPlayed = false;
     
     public Radar() {
         img = radarImg;
@@ -49,6 +55,14 @@ public class Radar extends Weapons
         setImage(img);
         
         BattleWorld bw = (BattleWorld) getWorld();
+        List<Zoomboat> lzb = getIntersectingObjects(Zoomboat.class);
+        
+        if (lzb.size() != 0 && !foundSoundPlayed) {
+            foundSoundPlayed = true;
+            foundSound.setVolume(90);
+            foundSound.play();
+        }
+        
         for (Zoomboat zb: getIntersectingObjects(Zoomboat.class)) {
             if (zb.getSide() != bw.getTurn()) {
                 zb.reveal();

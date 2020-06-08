@@ -15,9 +15,12 @@ public class Missile extends Weapons
     private int index = 0;
     private boolean exploding = false;
     private GreenfootImage[] blowingUp = {};
+    private GreenfootSound fireSound = new GreenfootSound("missileFire.mp3");
     public Missile(int damage, BattleWorld bw){
        this.damage = damage;
        this.bw = bw;
+       fireSound.setVolume(50);
+       fireSound.play();
     }
     
     public Missile(){
