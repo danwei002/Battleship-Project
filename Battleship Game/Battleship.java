@@ -29,8 +29,15 @@ public abstract class Battleship extends Actor
     // Check if a key has been pressed
     protected boolean keyPressed = false;
     
+    // Selected/unselected image
     protected GreenfootImage unselectedImg;
     protected GreenfootImage selectedImg;
+    
+    // BattleWorld
+    protected BattleWorld bw;
+    
+    // Submerged boolean for submarines
+    protected boolean submerged = false;
     
     /**
      * Make the Battleship take damage
@@ -53,6 +60,15 @@ public abstract class Battleship extends Actor
      */
     protected void unselect() {
         selected = false;
+    }
+    
+    /**
+     * Check submerged
+     * 
+     * @return boolean True if submerged, false if not
+     */
+    protected boolean isSubmerged() {
+        return submerged;
     }
     
     /**
@@ -135,10 +151,11 @@ public abstract class Battleship extends Actor
      * Method that is constantly called prior to game starting
      */
     protected void preGame() {
+        BattleWorld bw = (BattleWorld) getWorld();
         if (!selected) {return;}
         dragCheck();
         collisionHandler();
-        if (BattleWorld.pressedKey == "space") {
+        if (bw.keyPress() == "space") {
             turn(90);
         }
     }

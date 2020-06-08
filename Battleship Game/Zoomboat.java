@@ -11,12 +11,13 @@ public class Zoomboat extends Battleship
     private int currRow;
     private int currCol;
     
-    public Zoomboat(int hp, boolean isLeft)
+    public Zoomboat(int hp, boolean isLeft, BattleWorld bw)
     {
         width = BattleWorld.CELL_SIZE - 10;
         height =  BattleWorld.CELL_SIZE / 2;
         this.hp = hp;
         this.isLeft = isLeft;
+        this.bw = bw;
         img = getImage();
         img.scale(width, height);
         unselectedImg = new GreenfootImage("zoomboat.png");
@@ -28,15 +29,15 @@ public class Zoomboat extends Battleship
     
     public void act() 
     {
-        BattleWorld bw = (BattleWorld) getWorld();
+        bw = (BattleWorld) getWorld();
         currRow = bw.getRow(getY());
         currCol = bw.getCol(getX());
         borderCheck();
-        if (!BattleWorld.gameStarted) {
+        if (!bw.getGameState()) {
             preGame();
         } else {
             if (selected) {
-                String pressedKey = BattleWorld.pressedKey;
+                String pressedKey = bw.keyPress();
                 int tmp;
                 if ("w".equals(pressedKey) && currRow > 0) {
                     tmp = currRow - 1;

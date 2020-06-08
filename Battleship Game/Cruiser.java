@@ -7,11 +7,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public class Cruiser extends Battleship {
-    public Cruiser(int hp, boolean isLeft) {
+    public Cruiser(int hp, boolean isLeft, BattleWorld bw) {
         width = BattleWorld.CELL_SIZE * 2 - 20;
         height = BattleWorld.CELL_SIZE - 10;
         this.hp = hp;
         this.isLeft = isLeft;
+        this.bw = bw;
         img = getImage();
         img.scale(width, height);
         unselectedImg = new GreenfootImage("cruiser.png");
@@ -26,7 +27,7 @@ public class Cruiser extends Battleship {
      */
     public void act() {
         borderCheck();
-        if (!BattleWorld.gameStarted) {
+        if (!bw.getGameState()) {
             preGame();
         }
         

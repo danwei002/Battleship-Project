@@ -8,7 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Missile extends Weapons
 {
-    private int damage;
     private GreenfootImage[] missileExplosion = {new GreenfootImage("mis2.png"), new GreenfootImage("mis3.png"), new GreenfootImage("mis4.png"), new GreenfootImage("mis5.png"), 
                                                  new GreenfootImage("mis6.png"), new GreenfootImage("mis7.png"), new GreenfootImage("mis8.png"), new GreenfootImage("mis9.png"),
                                                  new GreenfootImage("mis10.png"), new GreenfootImage("mis11.png")};
@@ -36,7 +35,7 @@ public class Missile extends Weapons
     }
 
     public void dropMissile(int x, int y){
-        exploding =true; 
+        exploding = true; 
     }
 
     public void explode(){
@@ -44,18 +43,10 @@ public class Missile extends Weapons
             GreenfootImage missileExplosions  = missileExplosion[index/4];
             setImage(missileExplosions);
             index++;
-            if(index == 4){
-                 blowUp();
-            }
         }
         else {
             getWorld().removeObject(this);
             bw.switchTurn();
         }
-    }
-    
-    public void blowUp() {
-
-
     }
 }

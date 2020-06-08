@@ -8,19 +8,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Submarine extends Battleship
 {
-    private BattleWorld bw;
-    private boolean submerged = false;
     private GreenfootImage submergedUnselected = new GreenfootImage("submarineSubmerged.png");
     private GreenfootImage submergedSelected = new GreenfootImage("submarineSubmergedSelect.png");
     private GreenfootImage unselect = new GreenfootImage("submarine.png");
     private GreenfootImage select = new GreenfootImage("submarineSelected.png");
     
-    public Submarine(int hp, boolean isLeft)
+    public Submarine(int hp, boolean isLeft, BattleWorld bw)
     {
         width = BattleWorld.CELL_SIZE * 3 - 20;
         height = BattleWorld.CELL_SIZE - 10;
         this.hp = hp;
         this.isLeft = isLeft;
+        this.bw = bw;
         img = getImage();
         img.scale(width, height);
         unselectedImg = new GreenfootImage("submarine.png");
@@ -40,11 +39,11 @@ public class Submarine extends Battleship
      */
     public void act() 
     {
-        if (!BattleWorld.gameStarted) {
+        if (!bw.getGameState()) {
             preGame();
         } else {
             if (selected) {
-                if ("space".equals(BattleWorld.pressedKey)) {
+                if ("space".equals(bw.keyPress())) {
                     if (submerged) {
                         unselectedImg = unselect;
                         selectedImg = select;

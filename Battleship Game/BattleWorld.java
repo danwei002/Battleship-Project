@@ -16,25 +16,25 @@ public class BattleWorld extends World {
     public Battleship[][] grid; // first index = column #, second index = row #
     
     // Players' ships
-    private Zoomboat leftZoom1 = new Zoomboat(1, true);
-    private Zoomboat leftZoom2 = new Zoomboat(1, true);
-    private Cruiser leftCruiser1 = new Cruiser(2, true);
-    private Cruiser leftCruiser2 = new Cruiser(2, true);
-    private Submarine leftSub1 = new Submarine(3, true);
-    private Submarine leftSub2 = new Submarine(3, true);
+    private Zoomboat leftZoom1;
+    private Zoomboat leftZoom2;
+    private Cruiser leftCruiser1;
+    private Cruiser leftCruiser2;
+    private Submarine leftSub1;
+    private Submarine leftSub2;
     
-    private Zoomboat rightZoom1 = new Zoomboat(1, false);
-    private Zoomboat rightZoom2 = new Zoomboat(1, false);
-    private Cruiser rightCruiser1 = new Cruiser(2, false);
-    private Cruiser rightCruiser2 = new Cruiser(2, false);
-    private Submarine rightSub1 = new Submarine(3, false);
-    private Submarine rightSub2 = new Submarine(3, false);
+    private Zoomboat rightZoom1;
+    private Zoomboat rightZoom2;
+    private Cruiser rightCruiser1;
+    private Cruiser rightCruiser2;
+    private Submarine rightSub1;
+    private Submarine rightSub2;
     
     private ArrayList<Battleship> leftPlayerShips = new ArrayList<Battleship>();
     private ArrayList<Battleship> rightPlayerShips = new ArrayList<Battleship>();
     
     // Used in all classes to determine if the game has begun
-    public static boolean gameStarted = false;
+    private boolean gameStarted = false;
     
     // Store which player's turn it is
     private boolean isLeftTurn = true;
@@ -46,7 +46,7 @@ public class BattleWorld extends World {
     private TurnSwitch ts = new TurnSwitch();
     
     // End pre-game phase button
-    private StartGame sg = new StartGame();
+    private StartGame sg;
     
     // Main sound
     private GreenfootSound bkgrndMusic = new GreenfootSound("bkgrndMusic.mp3");
@@ -60,10 +60,26 @@ public class BattleWorld extends World {
     // 2 = torpedo
     private int weaponType = 0;
     
-    public static String pressedKey;
+    // Key press
+    private String pressedKey;
     
     public BattleWorld() {   
         super(CELL_SIZE * 20, CELL_SIZE * 10, 1); 
+        
+        leftZoom1 = new Zoomboat(1, true, this);
+        leftZoom2 = new Zoomboat(1, true, this);
+        leftCruiser1 = new Cruiser(2, true, this);
+        leftCruiser2 = new Cruiser(2, true, this);
+        leftSub1 = new Submarine(3, true, this);
+        leftSub2 = new Submarine(3, true, this);
+    
+        rightZoom1 = new Zoomboat(1, false, this);
+        rightZoom2 = new Zoomboat(1, false, this);
+        rightCruiser1 = new Cruiser(2, false, this);
+        rightCruiser2 = new Cruiser(2, false, this);
+        rightSub1 = new Submarine(3, false, this);
+        rightSub2 = new Submarine(3, false, this);
+        
         initialize();
         gameStarted = false;
         img.setColor(Color.BLUE);
@@ -92,6 +108,8 @@ public class BattleWorld extends World {
         addObject(rightCruiser2, CELL_SIZE * 19, CELL_SIZE * 4);
         addObject(rightZoom1, CELL_SIZE * 19, CELL_SIZE * 5);
         addObject(rightZoom2, CELL_SIZE * 19, CELL_SIZE * 6);
+        
+        sg = new StartGame(this);
         
         addObject(ts, CELL_SIZE * 10, CELL_SIZE * 10 - 50);
         addObject(sg, CELL_SIZE * 10, CELL_SIZE * 10 - 95);
@@ -137,6 +155,10 @@ public class BattleWorld extends World {
                     weaponDisplayed = true;
                     addObject(new WeaponSelected("radarSelected.png"), getWidth() / 2 , getHeight() / 2);
                     weaponType = 1;
+                } else if ("3".equals(pressedKey)) {
+                    weaponDisplayed = true;
+                    addObject(new WeaponSelected("torpedoSelected.png"), getWidth() / 2, getHeight() / 2);
+                    weaponType = 2;
                 }
             }
         }
@@ -258,6 +280,19 @@ public class BattleWorld extends World {
                     }
                 }
             }
+        } else if (weaponType == 2) {
+            if (Greenfoot.mouseClicked(this) || (l.size() != 0 && Greenfoot.mouseClicked(l.get(0)))) { 
+                if (grid[col][row] != null) {
+                    if (grid[col][row].getSide() == isLeftTurn || grid[col][row] instanceof DestroyedShip) {return;}
+                    else {torpedo(x, y);}
+                } else {
+                    if (isLeftTurn) {
+                        if (col >= 10) {torpedo(x, y);}
+                    } else {
+                        if (col <= 9) {torpedo(x, y);}
+                    }
+                }
+            }
         }
     }
         
@@ -266,7 +301,23 @@ public class BattleWorld extends World {
         int col = getCol(x);
         BomberPlane bomber = new BomberPlane(35, row, col, x, this);
         addObject(bomber, 0, (row * CELL_SIZE) + CELL_SIZE / 2);
-        if (grid[col][row] != null) {
+        if (grid[col][row] != null && !grid[col][row].isSubmerged()) {
+            grid[col][row].takeDamage(1);
+            DestroyedShip ds = new DestroyedShip(CELL_SIZE, CELL_SIZE, isLeftTurn);
+            grid[col][row] = ds;
+            addObject(ds, col * CELL_SIZE + CELL_SIZE / 2, row * CELL_SIZE + CELL_SIZE / 2);
+            if (isLeftTurn) {leftPlayerShips.add(ds);}
+            else {rightPlayerShips.add(ds);}
+        }
+    }
+    
+    public void torpedo(int x, int y) {
+        int row = getRow(y);
+        int col = getCol(x);
+        Torpedo torp = new Torpedo(1, this);
+        addObject(torp, col * CELL_SIZE + CELL_SIZE / 2, row * CELL_SIZE + CELL_SIZE / 2);
+        torp.doTorpedo();
+        if (grid[col][row] != null && grid[col][row].isSubmerged()) {
             grid[col][row].takeDamage(1);
             DestroyedShip ds = new DestroyedShip(CELL_SIZE, CELL_SIZE, isLeftTurn);
             grid[col][row] = ds;
@@ -330,6 +381,25 @@ public class BattleWorld extends World {
     public boolean getTurn() {
         return isLeftTurn;
     }
+    
+    /**
+     * Get key press
+     */
+    public String keyPress() {
+        return pressedKey;
+    }
+    
+    /**
+     * Set game started
+     */
+    public void startGame() {gameStarted = true;}
+    
+    /**
+     * Get game state
+     * 
+     * @return boolean True if game started, false if not
+     */
+    public boolean getGameState() {return gameStarted;}
     
     /**
      * Reset weapon displayed boolean

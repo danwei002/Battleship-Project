@@ -8,11 +8,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class StartGame extends Button
 {
-    public StartGame()
+    private BattleWorld bw;
+    public StartGame(BattleWorld bw)
     {
         selectedImg = new GreenfootImage("startGameBtnselected.png");
         unselectedImg = new GreenfootImage("startGameBtnUnselected.png");
-        
+        this.bw = bw;
         setImage(unselectedImg);   
         
         int width = getImage().getWidth() / 7;
@@ -23,7 +24,7 @@ public class StartGame extends Button
     
     public void onClick()
     {
-        BattleWorld.gameStarted = true;
+        bw.startGame();
         getWorld().removeObject(this);
     }
 }
