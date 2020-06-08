@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version (a version number or a date)
  */
 public class BattleWorld extends World {
-    public final static int CELL_SIZE = 60;
+    public final static int CELL_SIZE = 80;
     
     GreenfootImage img = new GreenfootImage(CELL_SIZE * 20, CELL_SIZE * 10);
     

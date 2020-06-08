@@ -8,7 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Missile extends Weapons
 {
-    private int speed; 
     private int damage;
     private GreenfootImage[] missileExplosion = {new GreenfootImage("mis2.png"), new GreenfootImage("mis3.png"), new GreenfootImage("mis4.png"), new GreenfootImage("mis5.png"), 
                                                  new GreenfootImage("mis6.png"), new GreenfootImage("mis7.png"), new GreenfootImage("mis8.png"), new GreenfootImage("mis9.png"),
@@ -16,20 +15,19 @@ public class Missile extends Weapons
     private int index = 0;
     private boolean exploding = false;
     private GreenfootImage[] blowingUp = {};
-    private BattleWorld bw;
-    public Missile(int speed, int damage, BattleWorld bw){
-       this.speed=speed;
+    public Missile(int damage, BattleWorld bw){
        this.damage = damage;
        this.bw = bw;
     }
+    
     public Missile(){
-        speed = 3;
         damage = 1;
     }
+    
     public void act() 
     {
         // Add your action code here.
-        if(exploding){
+        if(exploding) {
             explode();
         }
     }

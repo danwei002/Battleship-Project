@@ -34,7 +34,7 @@ public class BomberPlane extends Actor {
     public void act() {
         move(speed);
         if (!droppedMissile && getX() >= xCoord) {
-            m = new Missile(3, 1, bw);
+            m = new Missile(1, bw);
             bw.addObject(m, (col * bw.CELL_SIZE)+ bw.CELL_SIZE / 2 , (row * bw.CELL_SIZE) + bw.CELL_SIZE / 2);
             m.dropMissile((col * bw.CELL_SIZE)+ bw.CELL_SIZE / 2 , (row * bw.CELL_SIZE) + bw.CELL_SIZE / 2);
             droppedMissile = true;

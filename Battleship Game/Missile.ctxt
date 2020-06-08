@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Missile
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ Missile\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=speed\ damage\ bw
-comment1.target=Missile(int,\ int,\ BattleWorld)
+comment1.params=damage\ bw
+comment1.target=Missile(int,\ BattleWorld)
 comment2.params=
 comment2.target=Missile()
 comment3.params=
