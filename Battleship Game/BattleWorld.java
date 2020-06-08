@@ -51,6 +51,16 @@ public class BattleWorld extends World {
     // Main sound
     private GreenfootSound bkgrndMusic = new GreenfootSound("bkgrndMusic.mp3");
     
+    // See if the weapon selected display is still on screen
+    private boolean weaponDisplayed = false;
+    
+    // Weapon selected type storage
+    // 0 = missile
+    // 1 = radar
+    // 2 = torpedo
+    private int weaponType = 0;
+    
+    public static String pressedKey;
     
     public BattleWorld() {   
         super(CELL_SIZE * 20, CELL_SIZE * 10, 1); 
@@ -112,9 +122,23 @@ public class BattleWorld extends World {
     }
         
     public void act() {
+        pressedKey = Greenfoot.getKey();
         if (gameStarted) {
             removeObject(ts);
             gridClicked();
+            
+            if (!weaponDisplayed) {
+                
+                if ("1".equals(pressedKey)) {
+                    weaponDisplayed = true;
+                    addObject(new WeaponSelected("missileSelected.png"), getWidth() / 2, getHeight() / 2);
+                    weaponType = 0;
+                } else if ("2".equals(pressedKey)) {
+                    weaponDisplayed = true;
+                    addObject(new WeaponSelected("radarSelected.png"), getWidth() / 2 , getHeight() / 2);
+                    weaponType = 1;
+                }
+            }
         }
         
         processGrid();
@@ -209,15 +233,29 @@ public class BattleWorld extends World {
         int row = getRow(y);
         int col = getCol(x);
         List <Battleship> l = (List <Battleship>) getObjectsAt(x, y, Battleship.class);
-        if (Greenfoot.mouseClicked(this) || (l.size() != 0 && Greenfoot.mouseClicked(l.get(0)))) { 
-            if (grid[col][row] != null) {
-                if (grid[col][row].getSide() == isLeftTurn || grid[col][row] instanceof DestroyedShip) {return;}
-                else {bomb(x, y);}
-            } else {
-                if (isLeftTurn) {
-                    if (col >= 10) {bomb(x, y);}
+        if (weaponType == 0) {
+            if (Greenfoot.mouseClicked(this) || (l.size() != 0 && Greenfoot.mouseClicked(l.get(0)))) { 
+                if (grid[col][row] != null) {
+                    if (grid[col][row].getSide() == isLeftTurn || grid[col][row] instanceof DestroyedShip) {return;}
+                    else {bomb(x, y);}
                 } else {
-                    if (col <= 9) {bomb(x, y);}
+                    if (isLeftTurn) {
+                        if (col >= 10) {bomb(x, y);}
+                    } else {
+                        if (col <= 9) {bomb(x, y);}
+                    }
+                }
+            }
+        } else if (weaponType == 1) {
+            if (Greenfoot.mouseClicked(this) || (l.size() != 0 && Greenfoot.mouseClicked(l.get(0)))) {
+                if (isLeftTurn) {
+                    if (col >= 10) {
+                        addObject(new Radar(), col * CELL_SIZE + CELL_SIZE / 2, row * CELL_SIZE + CELL_SIZE / 2);
+                    }
+                } else {
+                    if (col <= 9) {
+                        addObject(new Radar(), col * CELL_SIZE + CELL_SIZE / 2, row * CELL_SIZE + CELL_SIZE / 2);
+                    }
                 }
             }
         }
@@ -278,6 +316,7 @@ public class BattleWorld extends World {
     public void switchTurn() {
         SwitchingTurnsText stt = new SwitchingTurnsText();
         addObject(stt, getWidth() / 2, getHeight() / 2);
+        weaponType = 0; // reset weapon to default
         Greenfoot.delay(300);
         removeObject(stt);
         isLeftTurn = !isLeftTurn;
@@ -291,4 +330,9 @@ public class BattleWorld extends World {
     public boolean getTurn() {
         return isLeftTurn;
     }
+    
+    /**
+     * Reset weapon displayed boolean
+     */
+    public void weaponDisplayReset() {weaponDisplayed = false;}
 }

@@ -138,7 +138,7 @@ public abstract class Battleship extends Actor
         if (!selected) {return;}
         dragCheck();
         collisionHandler();
-        if (Greenfoot.getKey() == "space") {
+        if (BattleWorld.pressedKey == "space") {
             turn(90);
         }
     }

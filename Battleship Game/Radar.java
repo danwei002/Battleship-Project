@@ -48,10 +48,18 @@ public class Radar extends Weapons
         img.drawOval(0, 0, pulseRadius * 2, pulseRadius * 2);
         setImage(img);
         
+        BattleWorld bw = (BattleWorld) getWorld();
+        for (Zoomboat zb: getIntersectingObjects(Zoomboat.class)) {
+            if (zb.getSide() != bw.getTurn()) {
+                zb.reveal();
+            }
+        }
+        
         if (pulseRadius < BattleWorld.CELL_SIZE * 2 + BattleWorld.CELL_SIZE / 2) {
             pulseRadius += 3;
         } else {
             getWorld().removeObject(this);
+            bw.switchTurn();
         }
     }
 }

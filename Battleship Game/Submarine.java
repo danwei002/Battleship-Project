@@ -44,7 +44,7 @@ public class Submarine extends Battleship
             preGame();
         } else {
             if (selected) {
-                if ("space".equals(Greenfoot.getKey())) {
+                if ("space".equals(BattleWorld.pressedKey)) {
                     if (submerged) {
                         unselectedImg = unselect;
                         selectedImg = select;

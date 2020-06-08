@@ -36,7 +36,7 @@ public class Zoomboat extends Battleship
             preGame();
         } else {
             if (selected) {
-                String pressedKey = Greenfoot.getKey();
+                String pressedKey = BattleWorld.pressedKey;
                 int tmp;
                 if ("w".equals(pressedKey) && currRow > 0) {
                     tmp = currRow - 1;
