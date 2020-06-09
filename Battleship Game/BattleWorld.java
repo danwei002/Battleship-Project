@@ -63,6 +63,9 @@ public class BattleWorld extends World {
     // Key press
     private String pressedKey;
     
+    // Show which player is currently playing
+    private TurnText turnText;
+    
     public BattleWorld() {   
         super(CELL_SIZE * 20, CELL_SIZE * 10, 1); 
         
@@ -79,6 +82,12 @@ public class BattleWorld extends World {
         rightCruiser2 = new Cruiser(2, false, this);
         rightSub1 = new Submarine(3, false, this);
         rightSub2 = new Submarine(3, false, this);
+        
+        turnText = new TurnText();
+        GreenfootImage tImage = turnText.getImage();
+        tImage.scale(CELL_SIZE * 3, CELL_SIZE / 2);
+        turnText.setImage(tImage);
+        addObject(turnText, getWidth() / 4, 25);
         
         initialize();
         gameStarted = false;
@@ -116,7 +125,7 @@ public class BattleWorld extends World {
         
         grid = new Battleship[20][10];
         
-        bkgrndMusic.setVolume(40);
+        bkgrndMusic.setVolume(65);
         bkgrndMusic.playLoop();
     }
     
@@ -170,9 +179,11 @@ public class BattleWorld extends World {
         //highlight();
         
         if (isLeftTurn) {
+            turnText.setLocation(getWidth() / 4, 25);
             for (Battleship b: rightPlayerShips) {b.unselect(); b.conceal();}
             for (Battleship b: leftPlayerShips) {b.reveal();}
         } else {
+            turnText.setLocation(getWidth() / 4 * 3, 25);
             for (Battleship b: leftPlayerShips) {b.unselect(); b.conceal();}
             for (Battleship b: rightPlayerShips) {b.reveal();}
         }

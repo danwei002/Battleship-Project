@@ -11,6 +11,7 @@ public class MainMenu extends World
     private GreenfootImage bkgrnd = new GreenfootImage("bkgrnd.png");
     public static final GreenfootSound menuMusic = new GreenfootSound("menuMusic.wav");
     private StartBtn startBtn;
+    private InstructBtn instructBtn;
     /**
      * Constructor for objects of class MainMenu.
      * 
@@ -23,6 +24,9 @@ public class MainMenu extends World
         
         startBtn = new StartBtn();
         addObject(startBtn, getWidth() / 2, getHeight() / 3);
+        
+        instructBtn = new InstructBtn();
+        addObject(instructBtn, getWidth() / 2, getHeight() / 2);
     }
     
     public void started() {

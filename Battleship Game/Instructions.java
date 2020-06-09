@@ -8,7 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Instructions extends World
 {
-
+    private GreenfootImage bkgrnd = new GreenfootImage("instructions.png");
+    private BackBtn backBtn;
     /**
      * Constructor for objects of class Instructions.
      * 
@@ -16,6 +17,11 @@ public class Instructions extends World
     public Instructions()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1); 
+        super(BattleWorld.CELL_SIZE * 20, BattleWorld.CELL_SIZE * 10, 1);
+        bkgrnd.scale(getWidth(), getHeight());
+        setBackground(bkgrnd);
+        
+        backBtn = new BackBtn(new MainMenu());
+        addObject(backBtn, 150, 50);
     }
 }
