@@ -10,6 +10,7 @@ public class MusicSelect extends World
 {
     public static final GreenfootSound track1 = new GreenfootSound("bkgrndMusic.mp3");
     public static final GreenfootSound track2 = new GreenfootSound("bkgrndMusic2.mp3");
+    public static final GreenfootSound track3 = new GreenfootSound("bkgrndMusic3.mp3");
     
     private GreenfootImage bkgrnd = new GreenfootImage("musicSelect.png");
     
@@ -17,6 +18,7 @@ public class MusicSelect extends World
     private BackBtn backBtn;
     private Soundtrack1 st1;
     private Soundtrack2 st2;
+    private Soundtrack3 st3;
     /**
      * Constructor for objects of class MusicSelect.
      * 
@@ -32,8 +34,10 @@ public class MusicSelect extends World
         
         st1 = new Soundtrack1();
         st2 = new Soundtrack2();
+        st3 = new Soundtrack3();
         
         addObject(st1, getWidth() / 2, getHeight() / 3);
         addObject(st2, getWidth() / 2, getHeight() / 2);
+        addObject(st3, getWidth() / 2, getHeight() / 3 * 2);
     }
 }
