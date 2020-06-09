@@ -12,6 +12,7 @@ public class MainMenu extends World
     public static final GreenfootSound menuMusic = new GreenfootSound("menuMusic.wav");
     private StartBtn startBtn;
     private InstructBtn instructBtn;
+    private MusicBtn musicBtn;
     /**
      * Constructor for objects of class MainMenu.
      * 
@@ -27,6 +28,9 @@ public class MainMenu extends World
         
         instructBtn = new InstructBtn();
         addObject(instructBtn, getWidth() / 2, getHeight() / 2);
+        
+        musicBtn = new MusicBtn();
+        addObject(musicBtn, getWidth() / 2, getHeight() / 3 * 2);
     }
     
     public void started() {

@@ -49,7 +49,7 @@ public class BattleWorld extends World {
     private StartGame sg;
     
     // Main sound
-    private GreenfootSound bkgrndMusic = new GreenfootSound("bkgrndMusic.mp3");
+    public static GreenfootSound bkgrndMusic = new GreenfootSound("bkgrndMusic.mp3");
     
     // See if the weapon selected display is still on screen
     private boolean weaponDisplayed = false;
@@ -416,4 +416,5 @@ public class BattleWorld extends World {
      * Reset weapon displayed boolean
      */
     public void weaponDisplayReset() {weaponDisplayed = false;}
+    
 }
