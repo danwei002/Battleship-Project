@@ -303,7 +303,12 @@ public class BattleWorld extends World {
             }
         }
     }
-        
+    /**
+     * Spawns the Plane and leads it towards the clicked grid to drop a missile
+     * @param int x x-coordinate of click
+     * @param int y y-coordinate of click
+     * 
+     */
     public void bomb(int x, int y) {
         int row = getRow(y);
         int col = getCol(x);
@@ -318,6 +323,12 @@ public class BattleWorld extends World {
             else {rightPlayerShips.add(ds);}
         }
     }
+    /**
+     * Controls the motion of the torpedo and its firing. 
+     * @param int x x-coordinate
+     * @param int y y-coordinate
+     * 
+     */
     
     public void torpedo(int x, int y) {
         int row = getRow(y);

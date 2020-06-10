@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Instructions extends World
 {
-    private GreenfootImage bkgrnd = new GreenfootImage("instructions.png");
+    private GreenfootImage bkgrnd = new GreenfootImage("INSTRUCTIONS.png");
     private BackBtn backBtn;
     /**
      * Constructor for objects of class Instructions.

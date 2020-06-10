@@ -8,11 +8,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Missile extends Weapons
 {
+    // array that contains the frames for the explosion animation.
     private GreenfootImage[] missileExplosion = {new GreenfootImage("mis2.png"), new GreenfootImage("mis3.png"), new GreenfootImage("mis4.png"), new GreenfootImage("mis5.png"), 
                                                  new GreenfootImage("mis6.png"), new GreenfootImage("mis7.png"), new GreenfootImage("mis8.png"), new GreenfootImage("mis9.png"),
                                                  new GreenfootImage("mis10.png"), new GreenfootImage("mis11.png")};
     private int index = 0;
-    private boolean exploding = false;
+    private boolean exploding = false; // boolean to check if the missile is exploding
     private GreenfootImage[] blowingUp = {};
     private GreenfootSound fireSound = new GreenfootSound("missileFire.mp3");
     public Missile(int damage, BattleWorld bw){

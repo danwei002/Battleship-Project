@@ -10,6 +10,7 @@ public class Torpedo extends Weapons
 {
     private int index = 0;
     private boolean exploding = false;
+    //Array that contains the frames for the torpedo animation
     private GreenfootImage[] frames = {new GreenfootImage("mis7.png"), new GreenfootImage("mis8.png"), new GreenfootImage("mis9.png"),
                                                  new GreenfootImage("mis10.png"), new GreenfootImage("mis11.png")};
                                                 
