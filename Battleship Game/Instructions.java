@@ -16,7 +16,6 @@ public class Instructions extends World
      */
     public Instructions()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(BattleWorld.CELL_SIZE * 20, BattleWorld.CELL_SIZE * 10, 1);
         bkgrnd.scale(getWidth(), getHeight());
         setBackground(bkgrnd);
