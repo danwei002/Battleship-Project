@@ -16,12 +16,16 @@ public class DestroyedShip extends Battleship
         img.scale(width, height);
         setImage(img);
     }
-    
+    /**
+     * Reveals the Red X that appears when a part of the ship is destroyed.
+     */
     public void reveal() 
     {
         img.setTransparency(255);
     }
-    
+    /**
+     * Conceals the Red X when the ship is not destroyed. 
+     */
     public void conceal()
     {
         img.setTransparency(1);

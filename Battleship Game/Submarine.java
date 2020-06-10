@@ -64,7 +64,9 @@ public class Submarine extends Battleship
         setLocation((int) (getX() / BattleWorld.CELL_SIZE) * BattleWorld.CELL_SIZE + BattleWorld.CELL_SIZE / 2, (int) (getY() / BattleWorld.CELL_SIZE) * BattleWorld.CELL_SIZE + BattleWorld.CELL_SIZE/ 2);
         if (hp <= 0) {getWorld().removeObject(this);}
     } 
-    
+    /**
+     * Conceals the Submarine between turns
+     */
     public void conceal()
     {
         unselectedImg.setTransparency(1);
@@ -74,7 +76,9 @@ public class Submarine extends Battleship
         img.setTransparency(1);
         setImage(img);
     }
-    
+    /**
+     * Reveals the Submarine when it is the Player's turn.
+     */
     public void reveal()
     {
         unselectedImg.setTransparency(255);
