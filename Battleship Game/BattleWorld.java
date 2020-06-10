@@ -124,9 +124,6 @@ public class BattleWorld extends World {
         addObject(sg, CELL_SIZE * 10, CELL_SIZE * 10 - 95);
         
         grid = new Battleship[20][10];
-        
-        bkgrndMusic.setVolume(50);
-        bkgrndMusic.playLoop();
     }
     
     /**

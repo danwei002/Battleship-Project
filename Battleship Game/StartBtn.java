@@ -24,7 +24,7 @@ public class StartBtn extends Button
      */
     public void onClick()
     {
-        World w = new BattleWorld();
+        World w = new LoadingScreen(new BattleWorld());
         MainMenu.menuMusic.stop();
         Greenfoot.setWorld(w);
     }
