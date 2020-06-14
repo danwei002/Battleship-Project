@@ -1,8 +1,9 @@
 #BlueJ class context
 comment0.target=Zoomboat
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Zoomboat\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Zoomboats\ are\ Battleship\ with\ the\ special\ functionality\ of\ being\ the\ only\ ship\ that\ is\ able\ to\ move\r\n\ after\ the\ initial\ pre-game\ phase.\ By\ using\ WASD,\ players\ can\ opt\ to\ use\ a\ turn\ to\ reposition\ their\ Zoomboats\r\n\ one\ cell\ up,\ down,\ left,\ or\ right.\ Zoomboats\ have\ one\ hit\ point\ and\ are\ 1x1\ cells\ in\ size.\r\n\ \r\n\ @author\ Daniel\ Wei\r\n\ @version\ June\ 14,\ 2020\r\n
 comment1.params=hp\ isLeft\ bw
 comment1.target=Zoomboat(int,\ boolean,\ BattleWorld)
+comment1.text=\r\n\ Create\ a\ Zoomboat\ with\ specified\ hp,\ player\ association,\ and\ BattleWorld\r\n\ \r\n\ @param\ hp\ The\ HP\ this\ Zoomboat\ will\ start\ with.\r\n\ @param\ isLeft\ True\ if\ this\ Zoomboat\ belongs\ to\ the\ left\ side\ player,\ false\ if\ it\ belongs\ to\ the\ right\ side\ player.\r\n\ @param\ bw\ The\ BattleWorld\ this\ Zoomboat\ is\ in.\r\n
 comment2.params=
 comment2.target=void\ act()
 numComments=3

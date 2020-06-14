@@ -1,15 +1,16 @@
 #BlueJ class context
 comment0.target=Submarine
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Submarine\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Submarines\ are\ Battleship\ with\ the\ special\ functionality\ of\ being\ able\ to\ submerge\ underwater\ should\ the\ player\r\n\ choose\ to\ do\ so.\ When\ submerged\ underwater,\ submarines\ are\ immune\ to\ being\ hit\ by\ aerial\ Missiles,\ but\ are\ vulnerable\r\n\ to\ underwater\ Torpedos.\ When\ they\ are\ not\ submerged,\ they\ are\ immune\ to\ underwater\ Torpedos,\ but\ vulnerable\ to\ aerial\ Missiles.\r\n\ Submarines\ have\ three\ hitpoints\ and\ are\ 3x1\ cells\ in\ size.\r\n\ \r\n\ @author\ Daniel\ Wei\r\n\ @version\ June\ 14,\ 2020\r\n
 comment1.params=hp\ isLeft\ bw
 comment1.target=Submarine(int,\ boolean,\ BattleWorld)
+comment1.text=\r\n\ Create\ a\ Submarine\ with\ specified\ hp,\ player\ association,\ and\ BattleWorld\r\n\ \r\n\ @param\ hp\ The\ HP\ this\ Submarine\ will\ start\ with.\r\n\ @param\ isLeft\ True\ if\ this\ Submarine\ belongs\ to\ the\ left\ side\ player,\ false\ if\ it\ belongs\ to\ the\ right\ side\ player.\r\n\ @param\ bw\ The\ BattleWorld\ this\ Submarine\ is\ in.\r\n
 comment2.params=
 comment2.target=void\ act()
 comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ Submarine\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
 comment3.params=
 comment3.target=void\ conceal()
-comment3.text=\r\n\ Conceals\ the\ Submarine\ between\ turns\r\n
+comment3.text=\r\n\ Conceals\ the\ Submarine\ between\ turns\ from\ the\ opposing\ player\r\n
 comment4.params=
 comment4.target=void\ reveal()
-comment4.text=\r\n\ Reveals\ the\ Submarine\ when\ it\ is\ the\ Player's\ turn.\r\n
+comment4.text=\r\n\ Reveals\ the\ Submarine\ when\ it\ is\ the\ associated\ player's\ turn.\r\n
 numComments=5

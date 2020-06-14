@@ -1,13 +1,18 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class TurnSwitch here.
+ * TurnSwitch is a button only avaiable during the pre-game phase where players are
+ * setting up their ship layouts. It switches between players to allow both to get an
+ * opportunity to set up their layouts.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Daniel Wei
+ * @version June 14, 2020
  */
 public class TurnSwitch extends Button
 {
+    /**
+     * Create a TurnSwitch
+     */
     public TurnSwitch()
     {
         selectedImg = new GreenfootImage("turnBtnselected.png");
@@ -20,7 +25,10 @@ public class TurnSwitch extends Button
         selectedImg.scale(width, height);
         unselectedImg.scale(width, height);
     }
-   
+    
+    /**
+     * Click handler
+     */
     public void onClick() {
         BattleWorld w = (BattleWorld) getWorld();
         w.switchTurn();

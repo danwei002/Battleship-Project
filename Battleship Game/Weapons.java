@@ -1,12 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Weapons here.
+ * Weapons are used by players to either attack enemy ships or gain intel on the enemy's position.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Govind Nair & Daniel Wei
+ * @version June 14, 2020
  */
-public class Weapons extends Actor
+public abstract class Weapons extends Actor
 {
     protected BattleWorld bw;
     protected GreenfootImage img;

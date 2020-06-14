@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Battleship
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Battleship\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Battleships\ are\ one\ of\ the\ main\ elements\ of\ this\ game.\ A\ battleship\ is\ an\ actor\ that\ is\ on\ the\ BattleWorld\ grid\ during\ the\ game.\r\n\ Each\ ship\ is\ associated\ with\ a\ player\ and\ has\ a\ certain\ amount\ of\ hits\ it\ can\ endure\ before\ going\ down.\ There\ are\ 3\ subclasses\ of\ battleship,\ Zoomboat,\ Submarine,\ and\ Cruiser.\r\n\ Battleships\ can\ be\ selected\ one\ at\ a\ time\ by\ each\ player\ during\ their\ turn.\r\n\ \r\n\ @author\ Daniel\ Wei\r\n\ @version\ June\ 14,\ 2020\r\n
 comment1.params=damage
 comment1.target=void\ takeDamage(int)
 comment1.text=\r\n\ Make\ the\ Battleship\ take\ damage\r\n\ \r\n\ @param\ damage\ The\ amount\ of\ damage\ to\ be\ taken\r\n

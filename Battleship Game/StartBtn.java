@@ -2,7 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  * StartBtn is a Button that
- * starts the battle simulation when clicked.
+ * starts the game when clicked.
  * 
  * @author Daniel Wei
  * @version April 27, 2020

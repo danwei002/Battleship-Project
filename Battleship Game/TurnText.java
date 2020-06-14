@@ -1,19 +1,13 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class TurnText here.
+ * TurnText is a very simple actor that simply hovers over side whose turn it is. It allows the players
+ * to know which side is currently playing.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Daniel Wei
+ * @version June 14, 2020
  */
 public class TurnText extends Actor
 {
-    /**
-     * Act - do whatever the TurnText wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act() 
-    {
-        // Add your action code here.
-    }    
+     
 }

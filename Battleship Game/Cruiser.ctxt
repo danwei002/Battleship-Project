@@ -1,8 +1,9 @@
 #BlueJ class context
 comment0.target=Cruiser
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Cruiser\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Cruisers\ are\ standard\ Battleships\ with\ no\ additional\ functionality.\ They\ are\ sized\ 2x1\ cells\ and\ can\ endure\ 2\ hits\ before\ going\ down.\r\n\ \r\n\ @author\ Daniel\ Wei\r\n\ @version\ June\ 14,\ 2020\r\n
 comment1.params=hp\ isLeft\ bw
 comment1.target=Cruiser(int,\ boolean,\ BattleWorld)
+comment1.text=\r\n\ Create\ a\ Cruiser\ with\ specified\ hp,\ player\ association,\ and\ BattleWorld\r\n\ \r\n\ @param\ hp\ The\ HP\ this\ Cruiser\ will\ start\ with.\r\n\ @param\ isLeft\ True\ if\ this\ Cruiser\ belongs\ to\ the\ left\ side\ player,\ false\ if\ it\ belongs\ to\ the\ right\ side\ player.\r\n\ @param\ bw\ The\ BattleWorld\ this\ Cruiser\ is\ located\ in.\r\n
 comment2.params=
 comment2.target=void\ act()
 comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ Cruiser\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n

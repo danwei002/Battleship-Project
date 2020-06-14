@@ -1,10 +1,12 @@
 #BlueJ class context
 comment0.target=BomberPlane
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ BomberPlane\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ BomberPlanes\ are\ the\ visual\ planes\ that\ fly\ across\ the\ screen\ to\ drop\r\n\ a\ Missile\ over\ a\ clicked\ cell.\ \r\n\ \r\n\ @author\ Govind\ Nair\r\n\ @version\ June\ 14,\ 2020\r\n
 comment1.params=
 comment1.target=BomberPlane()
+comment1.text=\r\n\ Create\ a\ BomberPlane\r\n
 comment2.params=speed\ row\ col\ xCoord\ bw
 comment2.target=BomberPlane(int,\ int,\ int,\ int,\ BattleWorld)
+comment2.text=\r\n\ Create\ a\ BomberPlane\ with\ specified\ speed,\ grid\ row,\ grid\ column,\ x-coordinate,\ and\ BattleWorld\r\n\ \r\n\ @param\ row\ The\ row\ the\ BomberPlane\ should\ fly\ across\r\n\ @param\ col\ The\ column\ at\ which\ the\ BomberPlane\ should\ drop\ its\ missile.\r\n\ @param\ xCoord\ The\ x-coordinate\ used\ to\ get\ the\ column\ where\ the\ missile\ should\ drop.\r\n\ @param\ bw\ The\ BattleWorld\ this\ BomberPlane\ is\ in.\r\n
 comment3.params=
 comment3.target=void\ act()
 numComments=4

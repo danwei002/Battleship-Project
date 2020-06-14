@@ -1,13 +1,13 @@
 #BlueJ class context
 comment0.target=Radar
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Radar\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Radars\ are\ weapons\ that\ reveal\ the\ locations\ of\ all\ enemy\ Zoomboats\r\n\ in\ a\ 5x5\ square\ around\ the\ cell\ it\ was\ dropped\ in.\r\n\ \r\n\ @author\ Daniel\ Wei\r\n\ @version\ June\ 14,\ 2020\r\n
 comment1.params=
 comment1.target=Radar()
+comment1.text=\r\n\ Create\ a\ Radar\r\n
 comment2.params=
 comment2.target=void\ act()
 comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ Radar\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
-comment3.params=col\ row
-comment3.target=void\ scan(int,\ int)
-comment4.params=
-comment4.target=void\ pulse()
-numComments=5
+comment3.params=
+comment3.target=void\ pulse()
+comment3.text=\r\n\ Handle\ Radar\ pulsing\r\n
+numComments=4

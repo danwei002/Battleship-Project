@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Missile here.
+ * Missiles are aerial weapons that affect and damage all unsubmerged Battleships. 
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Govind Nair
+ * @version June 14, 2020
  */
 public class Missile extends Weapons
 {
@@ -12,10 +12,16 @@ public class Missile extends Weapons
     private GreenfootImage[] missileExplosion = {new GreenfootImage("mis2.png"), new GreenfootImage("mis3.png"), new GreenfootImage("mis4.png"), new GreenfootImage("mis5.png"), 
                                                  new GreenfootImage("mis6.png"), new GreenfootImage("mis7.png"), new GreenfootImage("mis8.png"), new GreenfootImage("mis9.png"),
                                                  new GreenfootImage("mis10.png"), new GreenfootImage("mis11.png")};
-    private int index = 0;
+    private int index = 0; // animation index
     private boolean exploding = false; // boolean to check if the missile is exploding
-    private GreenfootImage[] blowingUp = {};
     private GreenfootSound fireSound = new GreenfootSound("missileFire.mp3");
+    
+    /**
+     * Create a Missile with specified damage and BattleWorld.
+     * 
+     * @param damage The damage this missile should deal to a Battleship it hits.
+     * @param bw The BattleWorld this missile is in.
+     */
     public Missile(int damage, BattleWorld bw){
        this.damage = damage;
        this.bw = bw;
@@ -23,6 +29,9 @@ public class Missile extends Weapons
        fireSound.play();
     }
     
+    /**
+     * Create a Missile with preset damage.
+     */
     public Missile(){
         damage = 1;
     }
@@ -34,11 +43,20 @@ public class Missile extends Weapons
             explode();
         }
     }
-
+    
+    /**
+     * Drop the missile at a certain x and y coordinate.
+     * 
+     * @param x X-coordinate to drop at.
+     * @param y Y-coordinate to drop at.
+     */
     public void dropMissile(int x, int y){
         exploding = true; 
     }
-
+    
+    /**
+     * Missile explosion animation handler
+     */
     public void explode(){
         if(index < 40) {     
             GreenfootImage missileExplosions  = missileExplosion[index/4];

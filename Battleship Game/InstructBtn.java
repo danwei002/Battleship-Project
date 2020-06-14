@@ -1,13 +1,16 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class InstructBtn here.
+ * InstructBtn takes users to the instructions page when clicked.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Daniel Wei 
+ * @version June 14, 2020
  */
 public class InstructBtn extends Button
 {
+    /**
+     * Create an InstructBtn
+     */
     public InstructBtn()
     {
         selectedImg = new GreenfootImage("instructBtnselected.png");
@@ -15,6 +18,9 @@ public class InstructBtn extends Button
         setImage(unselectedImg);
     }
     
+    /**
+     * Click handler
+     */
     public void onClick()
     {
         World w = new Instructions();

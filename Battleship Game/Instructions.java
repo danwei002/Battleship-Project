@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Instructions here.
+ * A world designed to give players instructions on how to play the game.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Daniel Wei & Govind Nair
+ * @version June 14, 2020
  */
 public class Instructions extends World
 {
@@ -12,7 +12,6 @@ public class Instructions extends World
     private BackBtn backBtn;
     /**
      * Constructor for objects of class Instructions.
-     * 
      */
     public Instructions()
     {    

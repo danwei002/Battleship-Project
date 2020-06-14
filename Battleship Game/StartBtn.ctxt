@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=StartBtn
-comment0.text=\r\n\ StartBtn\ is\ a\ Button\ that\r\n\ starts\ the\ battle\ simulation\ when\ clicked.\r\n\ \r\n\ @author\ Daniel\ Wei\r\n\ @version\ April\ 27,\ 2020\r\n
+comment0.text=\r\n\ StartBtn\ is\ a\ Button\ that\r\n\ starts\ the\ game\ when\ clicked.\r\n\ \r\n\ @author\ Daniel\ Wei\r\n\ @version\ April\ 27,\ 2020\r\n
 comment1.params=
 comment1.target=StartBtn()
 comment1.text=\r\n\ Create\ a\ StartBtn.\r\n

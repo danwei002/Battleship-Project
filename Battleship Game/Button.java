@@ -5,7 +5,10 @@ import java.util.*;
  * Button is the parent class for numerous Greenfoot Actors that does
  * what its name implies, it acts as a button that can be clicked to do something.
  * Buttons will indicate when they are being hovered over by changing their images
- * accordingly.
+ * accordingly, as well as playing a sound. When clicked, Buttons also play a sound.
+ * <br>
+ * <br>
+ * Button Sound Effects: <a href="https://www.youtube.com/watch?v=LqDO8yuL75Q">Link</a>
  * 
  * @author Daniel Wei 
  * @version April 27, 2020

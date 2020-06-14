@@ -1,6 +1,7 @@
 #BlueJ class context
 comment0.target=SwitchingTurnsText
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ SwitchingTurnsText\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ SwitchingTurnsText\ is\ a\ very\ simple\ Actor\ with\ no\ functionality.\ Its\ only\r\n\ purpose\ is\ to\ display\ a\ fancy\ "Switching\ Turns"\ text\ to\ tell\ users\ when\ the\ turns\ are\r\n\ switching\ and\ that\ one\ player\ should\ now\ turn\ away,\ and\ the\ other\ should\ swap\ back\ in.\r\n\ \r\n\ @author\ Daniel\ Wei\r\n\ @version\ June\ 14,\ 2020\r\n
 comment1.params=
 comment1.target=SwitchingTurnsText()
+comment1.text=\r\n\ Create\ a\ SwitchingTurnsText\r\n
 numComments=2

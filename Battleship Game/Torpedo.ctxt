@@ -1,13 +1,16 @@
 #BlueJ class context
 comment0.target=Torpedo
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Torpedo\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Torpedos\ are\ underwater\ weapons\ capable\ of\ affecting\ and\ damaging\ submerged\ Submarines.\r\n\ \r\n\ @author\ Govind\ Nair\r\n\ @version\ June\ 14,\ 2020\r\n
 comment1.params=damage\ bw
 comment1.target=Torpedo(int,\ BattleWorld)
+comment1.text=\r\n\ Create\ a\ Torpedo\ with\ specified\ damage\ and\ BattleWorld.\r\n\ \r\n\ @param\ damage\ Damage\ this\ Torpedo\ will\ deal\ to\ a\ Submarine\ it\ collides\ with.\r\n\ @param\ bw\ BattleWorld\ this\ Torpedo\ is\ in.\r\n
 comment2.params=
 comment2.target=void\ act()
 comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ Torpedo\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
 comment3.params=
 comment3.target=void\ doTorpedo()
+comment3.text=\r\n\ Start\ explosion\r\n
 comment4.params=
 comment4.target=void\ explode()
+comment4.text=\r\n\ Explosion\ animation\ handler\r\n
 numComments=5

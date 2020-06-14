@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Soundtrack1
-comment0.text=\r\n\ Soundtrack1\ is\ a\ simple\ Button\ that\ allows\r\n\ the\ user\ to\ select\ and\ listen\ to\ the\ first\r\n\ of\ three\ soundtracks\ in\ the\ battle\ simulation.\r\n\ \r\n\ @author\ Daniel\ Wei\r\n\ @version\ April\ 27,\ 2020\r\n
+comment0.text=\r\n\ Soundtrack1\ is\ a\ simple\ Button\ that\ allows\r\n\ the\ user\ to\ select\ and\ listen\ to\ the\ first\r\n\ of\ three\ soundtracks\ in\ the\ game.\r\n\ \r\n\ @author\ Daniel\ Wei\r\n\ @version\ April\ 27,\ 2020\r\n
 comment1.params=
 comment1.target=Soundtrack1()
 comment1.text=\r\n\ Create\ a\ Soundtrack1\ button.\r\n

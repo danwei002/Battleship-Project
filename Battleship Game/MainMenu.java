@@ -1,15 +1,22 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class MainMenu here.
+ * The Main Menu that players see when the game is first launched. From here
+ * they can change the game's soundtracks, view instructions, or start the game.
+ * <br>
+ * <br>
+ * Menu Music (Valorant Menu OST): <a href=https://www.youtube.com/watch?v=fOE9KngRlO8>Link</a>
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Daniel Wei
+ * @version June 14, 2020
  */
 public class MainMenu extends World
 {
-    private GreenfootImage bkgrnd = new GreenfootImage("bkgrnd.png");
+    // Menu music is Riot Games' Valorant Menu Music, https://www.youtube.com/watch?v=fOE9KngRlO8
     public static final GreenfootSound menuMusic = new GreenfootSound("menuMusic.wav");
+    
+    private GreenfootImage bkgrnd = new GreenfootImage("bkgrnd.png");
+    
     private StartBtn startBtn;
     private InstructBtn instructBtn;
     private MusicBtn musicBtn;

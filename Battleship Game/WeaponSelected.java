@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class WeaponSelected here.
+ * WeaponSelected is the visual display that shows when users are swapping between weapons.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Daniel Wei
+ * @version June 14, 2020
  */
 public class WeaponSelected extends Actor
 {
@@ -12,6 +12,12 @@ public class WeaponSelected extends Actor
     private GreenfootImage img;
     private int delay = 0;
     private int removal = 50;
+    
+    /**
+     * Create a WeaponSelected with the specified imageName.
+     * 
+     * @param imageName The name of the image to assign to this WeaponSelected.
+     */
     public WeaponSelected(String imageName) {
         this.imageName = imageName;
         img = new GreenfootImage(imageName);

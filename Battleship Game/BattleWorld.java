@@ -2,10 +2,19 @@ import java.util.*;
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class RedWorld here.
+ * BattleWorld is the main world where the game takes place. It consists of a grid with dimensions of 20x10 cells.
+ * Boats of different sizes (1x1, 2x1, and 3x1) can be placed around the grid on each player's corresponding 10x10 side.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Players start by taking turns setting up their ship layout, hitting switch turn in order to swap between the two. There is a
+ * delay between each turn switch to prevent the other player from cheating (ideally they should turn away from the screen during the switching
+ * delay). Once the ship layouts are set and ready, one player can choose to hit "Start Game" and initiate the main game phase.
+ * 
+ * During the game phase, players once again take turns trying to destroy each others' ships. On each turn, players can opt to use a weapon or
+ * move their Zoomboat one tile, each of which will end their turn and initiate the switching delay (once again, the player should turn away to
+ * avoid cheating after this). A player wins when all of the opponent's ships have been destroyed.
+ * 
+ * @author Daniel Wei & Govind Nair
+ * @version June 14, 2020
  */
 public class BattleWorld extends World {
     public final static int CELL_SIZE = 80;

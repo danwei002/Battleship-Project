@@ -1,10 +1,22 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class MusicSelect here.
+ * MusicSelect is a world where players can select the soundtrack they wish to here
+ * in the game.
+ * <br>
+ * <br>
+ * Track 1 (Peter Crowley - Battleship): <a href="https://www.youtube.com/watch?v=78k6Wy_c_t0">Link</a>
+ * <br>
+ * <br>
+ * Track 2 (Nintendo - Super Mario Galaxy's Buoy Base Galaxy OST): <a href="https://www.youtube.com/watch?v=z29bt-wjS88">Link</a>
+ * <br>
+ * <br>
+ * Track 3 (Nintendo - Super Mario Galaxy's Battlerock Galaxy OST): <a href="https://www.youtube.com/watch?v=KYhmHovdBxY">Link</a>
+ * <br>
+ * <br>
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Daniel Wei
+ * @version June 14, 2020
  */
 public class MusicSelect extends World
 {
@@ -13,7 +25,6 @@ public class MusicSelect extends World
     public static final GreenfootSound track3 = new GreenfootSound("bkgrndMusic3.mp3");
     
     private GreenfootImage bkgrnd = new GreenfootImage("musicSelect.png");
-    
     
     private BackBtn backBtn;
     private Soundtrack1 st1;

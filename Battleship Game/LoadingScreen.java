@@ -1,10 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class LoadingScreen here.
+ * A fake loading screen to make the game feel more like a game, as many games
+ * have loading screens.
+ * <br>
+ * <br>
+ * Loading Music (Valorant Loading Music): <a href="http://your.source.com/link">Link</a>
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Daniel Wei
+ * @version June 14, 2020
  */
 public class LoadingScreen extends World
 {

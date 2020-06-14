@@ -2,10 +2,12 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.*;
 
 /**
- * Write a description of class Battleship here.
+ * Battleships are one of the main elements of this game. A battleship is an actor that is on the BattleWorld grid during the game.
+ * Each ship is associated with a player and has a certain amount of hits it can endure before going down. There are 3 subclasses of battleship, Zoomboat, Submarine, and Cruiser.
+ * Battleships can be selected one at a time by each player during their turn.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Daniel Wei
+ * @version June 14, 2020
  */
 public abstract class Battleship extends Actor
 {
@@ -171,6 +173,14 @@ public abstract class Battleship extends Actor
             }
             
             if (getX() + getImage().getWidth() / 2 >= BattleWorld.CELL_SIZE * 10 + BattleWorld.CELL_SIZE / 2) {setLocation(getX() - BattleWorld.CELL_SIZE, getY());}
+            
+            if (getOneIntersectingObject(Battleship.class) != null) {
+                if (getX() - BattleWorld.CELL_SIZE >= BattleWorld.CELL_SIZE / 2) {
+                    setLocation(getX() - BattleWorld.CELL_SIZE, getY());
+                } else {
+                    setLocation(getX() + BattleWorld.CELL_SIZE, getY());
+                }
+            }
         } else {
             if (getOneIntersectingObject(Battleship.class) != null) {
                 if (getY() >= BattleWorld.CELL_SIZE * 9) {setLocation(getX(), getY() - BattleWorld.CELL_SIZE);}
@@ -178,6 +188,14 @@ public abstract class Battleship extends Actor
             }
             
             if (getX() - getImage().getWidth() / 2 <= BattleWorld.CELL_SIZE * 9 + BattleWorld.CELL_SIZE / 2) {setLocation(getX() + BattleWorld.CELL_SIZE, getY());}
+            
+            if (getOneIntersectingObject(Battleship.class) != null) {
+                if (getX() + BattleWorld.CELL_SIZE <= BattleWorld.CELL_SIZE * 19 + BattleWorld.CELL_SIZE / 2) {
+                    setLocation(getX() + BattleWorld.CELL_SIZE, getY());
+                } else {
+                    setLocation(getX() - BattleWorld.CELL_SIZE, getY());
+                }
+            }
         }
     }
     

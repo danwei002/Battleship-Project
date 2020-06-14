@@ -1,12 +1,19 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Cruiser here.
+ * Cruisers are standard Battleships with no additional functionality. They are sized 2x1 cells and can endure 2 hits before going down.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Daniel Wei
+ * @version June 14, 2020
  */
 public class Cruiser extends Battleship {
+    /**
+     * Create a Cruiser with specified hp, player association, and BattleWorld
+     * 
+     * @param hp The HP this Cruiser will start with.
+     * @param isLeft True if this Cruiser belongs to the left side player, false if it belongs to the right side player.
+     * @param bw The BattleWorld this Cruiser is located in.
+     */
     public Cruiser(int hp, boolean isLeft, BattleWorld bw) {
         width = BattleWorld.CELL_SIZE * 2 - 20;
         height = BattleWorld.CELL_SIZE - 10;
@@ -21,6 +28,7 @@ public class Cruiser extends Battleship {
         selectedImg.scale(width, height);
         setImage(img);
     }
+    
     /**
      * Act - do whatever the Cruiser wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.

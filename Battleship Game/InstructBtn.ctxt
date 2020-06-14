@@ -1,8 +1,10 @@
 #BlueJ class context
 comment0.target=InstructBtn
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ InstructBtn\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ InstructBtn\ takes\ users\ to\ the\ instructions\ page\ when\ clicked.\r\n\ \r\n\ @author\ Daniel\ Wei\ \r\n\ @version\ June\ 14,\ 2020\r\n
 comment1.params=
 comment1.target=InstructBtn()
+comment1.text=\r\n\ Create\ an\ InstructBtn\r\n
 comment2.params=
 comment2.target=void\ onClick()
+comment2.text=\r\n\ Click\ handler\r\n
 numComments=3

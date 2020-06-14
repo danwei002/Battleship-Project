@@ -3,7 +3,7 @@ import java.util.*;
 /**
  * Soundtrack2 is a simple Button that allows
  * the user to select and listen to the second
- * of three soundtracks in the battle simulation.
+ * of three soundtracks in the game.
  * 
  * @author Daniel Wei
  * @version April 27, 2020

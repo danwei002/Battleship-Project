@@ -1,8 +1,10 @@
 #BlueJ class context
 comment0.target=TurnSwitch
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ TurnSwitch\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ TurnSwitch\ is\ a\ button\ only\ avaiable\ during\ the\ pre-game\ phase\ where\ players\ are\r\n\ setting\ up\ their\ ship\ layouts.\ It\ switches\ between\ players\ to\ allow\ both\ to\ get\ an\r\n\ opportunity\ to\ set\ up\ their\ layouts.\r\n\ \r\n\ @author\ Daniel\ Wei\r\n\ @version\ June\ 14,\ 2020\r\n
 comment1.params=
 comment1.target=TurnSwitch()
+comment1.text=\r\n\ Create\ a\ TurnSwitch\r\n
 comment2.params=
 comment2.target=void\ onClick()
+comment2.text=\r\n\ Click\ handler\r\n
 numComments=3

@@ -1,16 +1,25 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
     
 /**
- * Write a description of class Zoomboat here.
+ * Zoomboats are Battleship with the special functionality of being the only ship that is able to move
+ * after the initial pre-game phase. By using WASD, players can opt to use a turn to reposition their Zoomboats
+ * one cell up, down, left, or right. Zoomboats have one hit point and are 1x1 cells in size.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Daniel Wei
+ * @version June 14, 2020
  */
 public class Zoomboat extends Battleship
 {
     private int currRow;
     private int currCol;
     
+    /**
+     * Create a Zoomboat with specified hp, player association, and BattleWorld
+     * 
+     * @param hp The HP this Zoomboat will start with.
+     * @param isLeft True if this Zoomboat belongs to the left side player, false if it belongs to the right side player.
+     * @param bw The BattleWorld this Zoomboat is in.
+     */
     public Zoomboat(int hp, boolean isLeft, BattleWorld bw)
     {
         width = BattleWorld.CELL_SIZE - 10;
@@ -36,6 +45,7 @@ public class Zoomboat extends Battleship
         if (!bw.getGameState()) {
             preGame();
         } else {
+            // Zoomboat movement handler
             if (selected) {
                 String pressedKey = bw.keyPress();
                 int tmp;
