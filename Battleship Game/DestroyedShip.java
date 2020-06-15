@@ -20,6 +20,7 @@ public class DestroyedShip extends Battleship
         this.width = width;
         this.height = height;
         this.isLeft = isLeft;
+        this.hp = 0;
         img = getImage();
         img.scale(width, height);
         setImage(img);

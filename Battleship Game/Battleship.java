@@ -225,4 +225,11 @@ public abstract class Battleship extends Actor
      * @return boolean True if left side team , false if right side team
      */
     protected boolean getSide() {return isLeft;}
+    
+    /**
+     * Get HP of ship
+     * 
+     * @return int HP of ship
+     */
+    protected int getHP() {return hp;}
 }

@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=LeftWin
+comment0.text=\r\n\ LeftWin\ is\ the\ world\ displayed\ when\ the\ left\ side\ player\ has\ won\ the\ game.\r\n\ <br>\r\n\ <br>\r\n\ Victory\ Music\:\ <a\ href\="https\://www.youtube.com/watch?v\=ghk8O1yiY0I">Link</a>\r\n\ \r\n\ @author\ Daniel\ Wei\r\n\ @version\ June\ 15,\ 2020\r\n
+comment1.params=
+comment1.target=LeftWin()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ LeftWin.\r\n\ \r\n
+comment2.params=
+comment2.target=void\ act()
+numComments=3

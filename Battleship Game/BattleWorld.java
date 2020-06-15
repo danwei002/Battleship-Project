@@ -193,6 +193,15 @@ public class BattleWorld extends World {
             for (Battleship b: leftPlayerShips) {b.unselect(); b.conceal();}
             for (Battleship b: rightPlayerShips) {b.reveal();}
         }
+        
+        int gameEndCheck = checkLose();
+        if (gameEndCheck == 1) {
+            bkgrndMusic.stop();
+            Greenfoot.setWorld(new RightWin());
+        } else if (gameEndCheck == 2) {
+            bkgrndMusic.stop();
+            Greenfoot.setWorld(new LeftWin());
+        }
     }
     
     /**
@@ -434,4 +443,34 @@ public class BattleWorld extends World {
      */
     public void weaponDisplayReset() {weaponDisplayed = false;}
     
+    /**
+     * Check if a player has had all their ships destroyed
+     * 
+     * @return int 0 if no player has had all ships destroyed, 1 if left side player has had all ships destroyed, 2 if right side player has had all ships destroyed
+     */
+    public int checkLose() {
+        int numLeftShips = leftPlayerShips.size();
+        int numRightShips = rightPlayerShips.size();
+        
+        int numLeftDestroyed = 0;
+        int numRightDestroyed = 0;
+        
+        for (Battleship b: leftPlayerShips) {
+            if (b.getHP() == 0) {
+                numLeftDestroyed++;
+            }
+        }
+        
+        if (numLeftDestroyed == numLeftShips) {return 1;}
+        
+        for (Battleship b: rightPlayerShips) {
+            if (b.getHP() == 0) {
+                numRightDestroyed++;
+            }
+        }
+        
+        if (numRightDestroyed == numRightShips) {return 2;}
+        
+        return 0;
+    }
 }
