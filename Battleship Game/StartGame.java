@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class StartGame here.
+ * Start the main game phase (exit pre-game phase)
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Daniel Wei 
+ * @version June 14, 2020
  */
 public class StartGame extends Button
 {

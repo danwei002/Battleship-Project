@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class MusicBtn here.
+ * Switches to MusicSelect world
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Daniel Wei
+ * @version June 14, 2020
  */
 public class MusicBtn extends Button
 {

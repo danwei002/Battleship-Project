@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=StartGame
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ StartGame\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Start\ the\ main\ game\ phase\ (exit\ pre-game\ phase)\r\n\ \r\n\ @author\ Daniel\ Wei\ \r\n\ @version\ June\ 14,\ 2020\r\n
 comment1.params=bw
 comment1.target=StartGame(BattleWorld)
 comment2.params=
