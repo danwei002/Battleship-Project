@@ -37,5 +37,6 @@ Controls:
 
 ## How to Run
 1. Download <a href="https://www.greenfoot.org/download">Greenfoot</a>
-2. There is no .gfar in this repository as it would exceed GitHub's 100MB limit. Instead, download the repository as a .zip file, extract its contents, then run the project.greenfoot file inside the Battleship Game folder
+2. There is no .gfar in this repository as it would exceed GitHub's 100MB limit. Instead, download the repository as a .zip file, extract its contents, then run the project.greenfoot file inside the Battleship Game folder. The MainMenu world should automatically instantiate, if not, right click on the MainMenu object in the right side
+hierarchy, and click new MainWorld()
 
