@@ -13,9 +13,20 @@ functionalities to boats and weapons to allow for more mindgames between opponen
 <br>
 Our custom features:
 * Boat Functionalities:
-  * Submarine: can be submerged or above water; submerged submarines are unable to be hit by Missiles, but vulnerable to torpedos, above water submarines are the opposite
-  * Zoomboat: can move to an adjacent grid cell on each turn
+  * Submarine (3 cell boat): can be submerged or above water; submerged submarines are unable to be hit by Missiles, but vulnerable to torpedos, above water submarines are the opposite
+  * Zoomboat (1 cell boat): can move to an adjacent grid cell on each turn
+  * Cruiser (2 cell boat): no special functionalities
 * Weapons
   * Missile: standard overhead strike on a single grid cell
   * Torpedo: underwater weapon that can strike submerged submarines
   * Radar: pulses and reveals all enemy Zoomboats in a 5x5 square centered around the grid cell it was used on
+ 
+ <br>
+ ## How To Play
+The objective of the game is to destroy all of your opponent's boats before they destroy yours.<br>
+<br>
+Controls:
+* Setup Phase:
+  * <kbd>Left Click</kbd>: select a boat
+  * Drag and drop boats to move them around 
+  * <kbd>spacebar</kbd>: rotate a boat
