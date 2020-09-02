@@ -26,6 +26,16 @@ The objective of the game is to destroy all of your opponent's boats before they
 <br>
 Controls:
 * Setup Phase:
-  * <kbd>Left Click</kbd>: select a boat
+  * <kbd>Left Click</kbd> : select a boat
   * Drag and drop boats to move them around 
-  * <kbd>spacebar</kbd>: rotate a boat
+  * <kbd>spacebar</kbd> : rotate a boat
+* Main Game Phase:
+  * <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> : cycle between weapons
+  * <kbd>Left Click</kbd> : select a boat or use weapon on grid cell
+  * <kbd>spacebar</kbd> : when selected submarine, spacebar to submerge it or bring it back above the water
+  * <kbd>wasd</kbd> : move a selected Zoomboat to an empty adjacent cell
+
+## How to Run
+1. Download <a href="https://www.greenfoot.org/download>Greenfoot</a>
+2. Download the .gfar file in this repository
+
