@@ -36,6 +36,6 @@ Controls:
   * <kbd>wasd</kbd> : move a selected Zoomboat to an empty adjacent cell
 
 ## How to Run
-1. Download <a href="https://www.greenfoot.org/download>Greenfoot</a>
+1. Download <a href="https://www.greenfoot.org/download">Greenfoot</a>
 2. Download the .gfar file in this repository
 
