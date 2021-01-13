@@ -11,6 +11,8 @@ The objective of the game remains the same, to destroy all of your opponents' bo
 functionalities to boats and weapons to allow for more mindgames between opponents.
 <br>
 <br>
+This game was developed using many object-oriented principles (encapsulation, abstraction, inheritance). The two primary classes are Battleship and Weapon, each of which have many child classes which are the boats and weapons you can see in game. 
+
 Our custom features:
 * Boat Functionalities:
   * Submarine (3 cell boat): can be submerged or above water; submerged submarines are unable to be hit by Missiles, but vulnerable to torpedos, above water submarines are the opposite
